@@ -127,6 +127,11 @@ export default function RootLayout({
         {/* Google Search Console Verification */}
         <meta name="google-site-verification" content="g852qlWEbOFM-af7WZhlrUBgQKZXAIDgvcjrgAEuOfE" />
         
+        {/* Favicon and Icons */}
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        
         {/* Script to prevent flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
