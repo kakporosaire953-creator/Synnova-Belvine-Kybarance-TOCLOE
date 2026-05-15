@@ -87,13 +87,15 @@ const testimonials = [
     quote: "Synnova apporte une énergie unique à chaque événement. Son professionnalisme et sa créativité sont remarquables.",
     author: "Organisateur d'événements",
     role: "Festival des Arts",
-    imageIndex: 8,
+    initial: "O",
+    color: "bg-rose",
   },
   {
     quote: "Une communicatrice exceptionnelle qui comprend les enjeux de la jeunesse béninoise.",
     author: "Partenaire UReport",
     role: "Grand-Popo",
-    imageIndex: 9,
+    initial: "P",
+    color: "bg-indigo",
   },
 ];
 
@@ -352,15 +354,10 @@ export default function PortfolioPage() {
                       {testimonial.quote}
                     </p>
                     <div className="mt-6 flex items-center gap-4">
-                      <div className="relative w-12 h-12 rounded-full overflow-hidden">
-                        <Image
-                          src={galleryImages[testimonial.imageIndex]?.src || galleryImages[0].src}
-                          alt={testimonial.author}
-                          fill
-                          className="object-cover object-top"
-                          quality={95}
-                          sizes="48px"
-                        />
+                      <div className={`w-12 h-12 rounded-full ${testimonial.color} flex items-center justify-center`}>
+                        <span className="text-white font-bold text-xl">
+                          {testimonial.initial}
+                        </span>
                       </div>
                       <div>
                         <p className="font-semibold text-indigo">
