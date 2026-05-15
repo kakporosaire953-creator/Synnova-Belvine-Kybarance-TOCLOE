@@ -11,7 +11,7 @@ import { useTranslation } from "@/lib/app-context";
 
 const navItemsFr = [
   { name: "Accueil", href: "/" },
-  { name: "A Propos", href: "/a-propos" },
+  { name: "À Propos", href: "/a-propos" },
   { name: "Mes Univers", href: "/univers" },
   { name: "Portfolio", href: "/portfolio" },
   { name: "Contact", href: "/contact" },

@@ -327,28 +327,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Stats Section */}
-        <section className="py-20 bg-background">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <StaggerContainer className="grid grid-cols-3 gap-8">
-              {highlights.map((stat) => (
-                <StaggerItem key={stat.label} className="text-center">
-                  <motion.p
-                    whileInView={{ scale: [0.5, 1.1, 1] }}
-                    viewport={{ once: true }}
-                    transition={{ duration: 0.6 }}
-                    className="font-serif text-4xl sm:text-5xl lg:text-6xl font-bold text-rose"
-                  >
-                    {stat.number}
-                  </motion.p>
-                  <p className="mt-2 text-muted-foreground text-sm sm:text-base">
-                    {stat.label}
-                  </p>
-                </StaggerItem>
-              ))}
-            </StaggerContainer>
-          </div>
-        </section>
+        {/* Stats Section - REMOVED: Stats non sourcées */}
 
         {/* Photo Gallery Section */}
         <section className="py-20 bg-card overflow-hidden">
@@ -375,7 +354,7 @@ export default function HomePage() {
               }}
               className="flex gap-4"
             >
-              {[...galleryImages, ...galleryImages, ...galleryImages].map((image, index) => (
+              {galleryImages.slice(0, 9).map((image, index) => (
                 <motion.div
                   key={`${image.id}-${index}`}
                   whileHover={{ scale: 1.03, y: -8 }}

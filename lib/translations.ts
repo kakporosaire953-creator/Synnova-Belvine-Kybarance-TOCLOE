@@ -9,7 +9,7 @@ export const translations = {
     "hero.cta.contact": "Me contacter",
     
     // Quote
-    "quote.text": "Je suis une femme en chemin, portée par la création, la parole et l'engagement. Animatrice d'événements, Communicatrice, Actrice, Militante pour des changements positifs.",
+    "quote.text": "La création, la parole et l'engagement sont au cœur de mon parcours. Chaque projet est une opportunité de faire la différence et d'inspirer le changement.",
     
     // Facettes
     "facettes.label": "Mes Facettes",
@@ -77,7 +77,7 @@ export const translations = {
     "hero.cta.contact": "Contact me",
     
     // Quote
-    "quote.text": "I am a woman on a journey, driven by creation, voice and commitment. Event host, Communicator, Actress, Advocate for positive change.",
+    "quote.text": "Creation, voice and commitment are at the heart of my journey. Every project is an opportunity to make a difference and inspire change.",
     
     // Facettes
     "facettes.label": "My Facets",

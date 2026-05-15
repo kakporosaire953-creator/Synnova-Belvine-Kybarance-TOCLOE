@@ -17,7 +17,7 @@ const playfair = Playfair_Display({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://synnova-tocloe.vercel.app'),
+  metadataBase: new URL('https://synnova-belvine-kybarance-tocloe.vercel.app'),
   title: {
     default: "Synnova Tocloe | Animatrice, Communicatrice, Actrice & Entrepreneuse au Bénin",
     template: "%s | Synnova Tocloe"
@@ -57,7 +57,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "fr_FR",
     alternateLocale: ["en_US", "fr_BJ"],
-    url: "https://synnova-tocloe.vercel.app",
+    url: "https://synnova-belvine-kybarance-tocloe.vercel.app",
     siteName: "Synnova Tocloe - Portfolio Professionnel",
     title: "Synnova Tocloe | Animatrice, Communicatrice, Actrice & Entrepreneuse au Bénin",
     description:
@@ -92,10 +92,10 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://synnova-tocloe.vercel.app",
+    canonical: "https://synnova-belvine-kybarance-tocloe.vercel.app",
     languages: {
-      'fr': "https://synnova-tocloe.vercel.app",
-      'en': "https://synnova-tocloe.vercel.app",
+      'fr': "https://synnova-belvine-kybarance-tocloe.vercel.app",
+      'en': "https://synnova-belvine-kybarance-tocloe.vercel.app",
     },
   },
   category: 'portfolio',
@@ -149,8 +149,8 @@ export default function RootLayout({
               "@type": "Person",
               "name": "Synnova Belvine Kybarance Tocloe",
               "alternateName": "Synnova Tocloe",
-              "url": "https://synnova-tocloe.vercel.app",
-              "image": "https://synnova-tocloe.vercel.app/images/file_000000004eec720a99fc1a9510c45e97.png",
+              "url": "https://synnova-belvine-kybarance-tocloe.vercel.app",
+              "image": "https://synnova-belvine-kybarance-tocloe.vercel.app/images/file_000000004eec720a99fc1a9510c45e97.png",
               "sameAs": [
                 "https://facebook.com/synnovalumiere",
                 "https://instagram.com/_synnova",
@@ -198,12 +198,12 @@ export default function RootLayout({
               "@context": "https://schema.org",
               "@type": "WebSite",
               "name": "Synnova Tocloe",
-              "url": "https://synnova-tocloe.vercel.app",
+              "url": "https://synnova-belvine-kybarance-tocloe.vercel.app",
               "description": "Portfolio professionnel de Synnova Tocloe - Animatrice, Communicatrice, Actrice et Entrepreneuse au Bénin",
               "inLanguage": ["fr-FR", "en-US"],
               "potentialAction": {
                 "@type": "SearchAction",
-                "target": "https://synnova-tocloe.vercel.app/?s={search_term_string}",
+                "target": "https://synnova-belvine-kybarance-tocloe.vercel.app/?s={search_term_string}",
                 "query-input": "required name=search_term_string"
               }
             })

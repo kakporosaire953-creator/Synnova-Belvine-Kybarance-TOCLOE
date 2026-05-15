@@ -38,7 +38,7 @@ const footerLinksFr = [
     title: "Navigation",
     links: [
       { label: "Accueil", href: "/" },
-      { label: "A Propos", href: "/a-propos" },
+      { label: "À Propos", href: "/a-propos" },
       { label: "Mes Univers", href: "/univers" },
       { label: "Portfolio", href: "/portfolio" },
       { label: "Contact", href: "/contact" },
@@ -49,7 +49,7 @@ const footerLinksFr = [
     links: [
       { label: "Animation", href: "/univers#animation" },
       { label: "Communication", href: "/univers#communication" },
-      { label: "Cinema", href: "/univers#cinema" },
+      { label: "Cinéma", href: "/univers#cinema" },
       { label: "Entrepreneuriat", href: "/univers#entrepreneuriat" },
     ],
   },
@@ -84,7 +84,7 @@ export function Footer() {
   const { language } = useTranslation();
   const footerLinks = language === "fr" ? footerLinksFr : footerLinksEn;
   const description = language === "fr" ? descriptionFr : descriptionEn;
-  const rightsText = language === "fr" ? "Tous droits reserves." : "All rights reserved.";
+  const rightsText = language === "fr" ? "Tous droits réservés." : "All rights reserved.";
 
   return (
     <footer className="bg-indigo text-white">
@@ -145,7 +145,7 @@ export function Footer() {
             &copy; {new Date().getFullYear()} Synnova Tocloe. {rightsText}
           </p>
           <p className="text-white/50 text-sm">
-            Grand-Popo, Benin
+            Grand-Popo, Bénin
           </p>
         </div>
       </div>

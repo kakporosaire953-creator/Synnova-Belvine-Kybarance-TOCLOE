@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://synnova-tocloe.vercel.app'
+  const baseUrl = 'https://synnova-belvine-kybarance-tocloe.vercel.app'
   const currentDate = new Date()
 
   return [
