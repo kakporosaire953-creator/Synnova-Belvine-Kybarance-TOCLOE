@@ -13,6 +13,7 @@ import {
 } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { PageLoader } from "@/components/page-loader";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
 import { useTranslation } from "@/lib/app-context";
 import { universImages, galleryImages } from "@/lib/synnova-images";
@@ -196,7 +197,7 @@ export default function UniversPage() {
   const univers = language === "fr" ? universFr : universEn;
 
   return (
-    <>
+    <PageLoader>
       <Navigation />
       <main className="overflow-hidden">
         {/* Hero Section */}
@@ -433,6 +434,6 @@ export default function UniversPage() {
         </section>
       </main>
       <Footer />
-    </>
+    </PageLoader>
   );
 }

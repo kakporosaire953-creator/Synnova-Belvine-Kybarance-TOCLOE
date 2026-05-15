@@ -1,36 +1,37 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
-export function PageLoader() {
-  return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-background">
-      <motion.div
-        initial={{ opacity: 0, scale: 0.8 }}
-        animate={{ opacity: 1, scale: 1 }}
-        className="flex flex-col items-center gap-4"
-      >
-        <div className="relative w-16 h-16">
-          <div className="absolute inset-0 rounded-full border-4 border-rose/20" />
-          <motion.div
-            className="absolute inset-0 rounded-full border-4 border-rose border-t-transparent"
-            animate={{ rotate: 360 }}
-            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
-          />
-        </div>
-        <span className="text-sm font-medium text-foreground/60">Chargement...</span>
-      </motion.div>
-    </div>
-  );
+interface PageLoaderProps {
+  children: React.ReactNode;
 }
 
-// Simple loading skeleton for content
-export function ContentSkeleton() {
-  return (
-    <div className="animate-pulse space-y-4">
-      <div className="h-8 bg-card rounded w-3/4" />
-      <div className="h-4 bg-card rounded w-full" />
-      <div className="h-4 bg-card rounded w-5/6" />
-    </div>
-  );
+export function PageLoader({ children }: PageLoaderProps) {
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  if (!mounted) {
+    return (
+      <div className="min-h-screen flex items-center justify-center bg-background">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          className="text-center"
+        >
+          <motion.div
+            animate={{ rotate: 360 }}
+            transition={{ duration: 1, repeat: Infinity, ease: "linear" }}
+            className="w-8 h-8 border-2 border-rose border-t-transparent rounded-full mx-auto mb-4"
+          />
+          <p className="text-muted-foreground">Chargement...</p>
+        </motion.div>
+      </div>
+    );
+  }
+
+  return <>{children}</>;
 }

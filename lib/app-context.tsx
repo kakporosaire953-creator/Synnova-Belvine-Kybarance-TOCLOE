@@ -32,19 +32,27 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   // Initialize from localStorage on mount
   useEffect(() => {
-    setMounted(true);
-    
-    // Get saved locale
-    const savedLocale = localStorage.getItem("synnova-locale") as Locale;
-    if (savedLocale && (savedLocale === "fr" || savedLocale === "en")) {
-      setLanguageState(savedLocale);
-    }
-    
-    // Get saved theme
-    const savedTheme = localStorage.getItem("synnova-theme") as Theme;
-    if (savedTheme && ["light", "dark", "system"].includes(savedTheme)) {
-      setThemeState(savedTheme);
-    }
+    const initializeSettings = () => {
+      try {
+        // Get saved locale
+        const savedLocale = localStorage.getItem("synnova-locale") as Locale;
+        if (savedLocale && (savedLocale === "fr" || savedLocale === "en")) {
+          setLanguageState(savedLocale);
+        }
+        
+        // Get saved theme
+        const savedTheme = localStorage.getItem("synnova-theme") as Theme;
+        if (savedTheme && ["light", "dark", "system"].includes(savedTheme)) {
+          setThemeState(savedTheme);
+        }
+      } catch (error) {
+        console.warn("Failed to load settings from localStorage:", error);
+      } finally {
+        setMounted(true);
+      }
+    };
+
+    initializeSettings();
   }, []);
 
   // Handle theme changes
@@ -83,23 +91,51 @@ export function AppProvider({ children }: { children: ReactNode }) {
 
   const setLanguage = (newLocale: Locale) => {
     setLanguageState(newLocale);
-    localStorage.setItem("synnova-locale", newLocale);
+    if (mounted) {
+      try {
+        localStorage.setItem("synnova-locale", newLocale);
+      } catch (error) {
+        console.warn("Failed to save locale to localStorage:", error);
+      }
+    }
   };
 
   const setTheme = (newTheme: Theme) => {
     setThemeState(newTheme);
-    localStorage.setItem("synnova-theme", newTheme);
+    if (mounted) {
+      try {
+        localStorage.setItem("synnova-theme", newTheme);
+      } catch (error) {
+        console.warn("Failed to save theme to localStorage:", error);
+      }
+    }
   };
 
   // Prevent hydration mismatch by using consistent initial values
   const value: AppContextType = {
-    language: mounted ? language : "fr",
-    setLanguage: mounted ? setLanguage : () => {},
-    t: mounted ? t : (key: string) => getTranslation("fr", key),
-    theme: mounted ? theme : "light",
-    setTheme: mounted ? setTheme : () => {},
-    resolvedTheme: mounted ? resolvedTheme : "light",
+    language,
+    setLanguage,
+    t,
+    theme,
+    setTheme,
+    resolvedTheme,
   };
+
+  // Show loading state until mounted to prevent hydration mismatch
+  if (!mounted) {
+    return (
+      <AppContext.Provider value={{
+        language: "fr",
+        setLanguage: () => {},
+        t: (key: string) => getTranslation("fr", key),
+        theme: "light",
+        setTheme: () => {},
+        resolvedTheme: "light",
+      }}>
+        {children}
+      </AppContext.Provider>
+    );
+  }
 
   return (
     <AppContext.Provider value={value}>

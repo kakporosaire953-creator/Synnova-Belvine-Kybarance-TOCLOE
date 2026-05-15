@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowRight, Mic, MessageCircle, Film, Leaf } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { PageLoader } from "@/components/page-loader";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -87,7 +88,7 @@ export default function HomePage() {
   const highlights = language === "fr" ? highlightsFr : highlightsEn;
 
   return (
-    <>
+    <PageLoader>
       <Navigation />
       <main className="overflow-hidden">
         {/* Hero Section */}
@@ -505,6 +506,6 @@ export default function HomePage() {
         </section>
       </main>
       <Footer />
-    </>
+    </PageLoader>
   );
 }

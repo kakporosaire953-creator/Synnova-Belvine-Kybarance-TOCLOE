@@ -16,6 +16,7 @@ import {
 } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { PageLoader } from "@/components/page-loader";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
 import { useTranslation } from "@/lib/app-context";
 import { QuoteCalculator } from "@/components/quote-calculator";
@@ -160,7 +161,7 @@ Email: ${formData.email}`;
   };
 
   return (
-    <>
+    <PageLoader>
       <Navigation />
       <main className="overflow-hidden">
         {/* Hero Section */}
@@ -694,6 +695,6 @@ Email: ${formData.email}`;
         </section>
       </main>
       <Footer />
-    </>
+    </PageLoader>
   );
 }

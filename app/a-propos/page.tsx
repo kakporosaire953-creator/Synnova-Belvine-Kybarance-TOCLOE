@@ -6,6 +6,7 @@ import Image from "next/image";
 import { ArrowRight, GraduationCap, Heart, Film, Leaf } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { PageLoader } from "@/components/page-loader";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -128,7 +129,7 @@ export default function AProposPage() {
   const valeurs = language === "fr" ? valeursFr : valeursEn;
 
   return (
-    <>
+    <PageLoader>
       <Navigation />
       <main className="overflow-hidden">
         {/* Hero Section */}
@@ -429,6 +430,6 @@ export default function AProposPage() {
         </section>
       </main>
       <Footer />
-    </>
+    </PageLoader>
   );
 }

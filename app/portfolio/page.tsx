@@ -7,6 +7,7 @@ import Image from "next/image";
 import { ArrowRight, X, Calendar, MapPin, ChevronLeft, ChevronRight, ZoomIn } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
+import { PageLoader } from "@/components/page-loader";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
 import { galleryImages, type SynnovaImage } from "@/lib/synnova-images";
 
@@ -144,7 +145,7 @@ export default function PortfolioPage() {
   }, [handleKeyDown]);
 
   return (
-    <>
+    <PageLoader>
       <Navigation />
       <main className="overflow-hidden">
         {/* Hero Section */}
@@ -553,6 +554,6 @@ export default function PortfolioPage() {
         </AnimatePresence>
       </main>
       <Footer />
-    </>
+    </PageLoader>
   );
 }
