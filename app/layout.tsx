@@ -128,8 +128,8 @@ export default function RootLayout({
         <meta name="google-site-verification" content="g852qlWEbOFM-af7WZhlrUBgQKZXAIDgvcjrgAEuOfE" />
         
         {/* Favicon and Icons */}
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="icon" href="/icon.svg" type="image/svg+xml" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="shortcut icon" href="/favicon.svg" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         
         {/* Script to prevent flash of wrong theme */}
