@@ -85,12 +85,7 @@ export function Navigation() {
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
             <div className="relative z-10">
-              <div className="hidden sm:block">
-                <Logo size="md" />
-              </div>
-              <div className="sm:hidden">
-                <LogoIcon size="md" />
-              </div>
+              <Logo size="sm" showText={true} />
             </div>
 
             {/* Desktop Nav */}

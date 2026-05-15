@@ -24,10 +24,10 @@ export function Logo({
     : variant;
 
   const sizeConfig = {
-    sm: { icon: 38, text: "text-lg", gap: "gap-3" },
-    md: { icon: 46, text: "text-xl", gap: "gap-3" },
-    lg: { icon: 54, text: "text-2xl", gap: "gap-4" },
-    xl: { icon: 70, text: "text-3xl", gap: "gap-4" },
+    sm: { icon: 38, text: "text-base sm:text-lg", gap: "gap-2 sm:gap-3" },
+    md: { icon: 46, text: "text-lg sm:text-xl", gap: "gap-3" },
+    lg: { icon: 54, text: "text-xl sm:text-2xl", gap: "gap-4" },
+    xl: { icon: 70, text: "text-2xl sm:text-3xl", gap: "gap-4" },
   };
 
   const colors = {
@@ -142,7 +142,7 @@ export function Logo({
             SYNNOVA
           </span>
           <span
-            className="text-[0.65em] font-medium tracking-[0.15em] uppercase mt-0.5"
+            className="text-[0.65em] font-medium tracking-[0.15em] uppercase mt-0.5 min-w-0"
             style={{ 
               color: c.accent,
               opacity: 0.9
