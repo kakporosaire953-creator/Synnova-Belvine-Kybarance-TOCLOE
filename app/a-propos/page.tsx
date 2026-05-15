@@ -12,7 +12,7 @@ import {
   StaggerItem,
 } from "@/components/animations";
 import { useTranslation } from "@/lib/app-context";
-import { aboutImage, artisticImage, galleryImages, universImages } from "@/lib/synnova-images";
+import { aboutImage, galleryImages, universImages } from "@/lib/synnova-images";
 
 const timelineFr = [
   {

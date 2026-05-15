@@ -18,6 +18,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
 import { useTranslation } from "@/lib/app-context";
+import { QuoteCalculator } from "@/components/quote-calculator";
 
 const demandTypesFr = [
   "Animation d'événement",
@@ -187,6 +188,30 @@ Email: ${formData.email}`;
                   : "An idea, a project, a collaboration? Don't hesitate to contact me."
                 }
               </p>
+            </AnimatedSection>
+          </div>
+        </section>
+
+        {/* Quote Calculator Section */}
+        <section className="py-24 bg-background">
+          <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection className="text-center mb-12">
+              <span className="text-rose font-medium tracking-widest uppercase text-sm">
+                Devis Instantané
+              </span>
+              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-foreground mt-4 tracking-tight">
+                {language === "fr" ? "Calculez votre devis" : "Calculate your quote"}
+              </h2>
+              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto">
+                {language === "fr" 
+                  ? "Obtenez une estimation personnalisée pour votre événement en quelques clics"
+                  : "Get a personalized estimate for your event in just a few clicks"
+                }
+              </p>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2}>
+              <QuoteCalculator />
             </AnimatedSection>
           </div>
         </section>
