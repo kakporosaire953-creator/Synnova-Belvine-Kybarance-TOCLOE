@@ -343,7 +343,7 @@ export default function UniversPage() {
                     >
                       {/* Real Image */}
                       <Image
-                        src={u.image}
+                        src={u.image.src}
                         alt={u.title}
                         fill
                         className="object-cover object-top"
