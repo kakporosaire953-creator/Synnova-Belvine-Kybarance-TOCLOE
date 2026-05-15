@@ -125,7 +125,7 @@ export default function RootLayout({
     >
       <head>
         {/* Google Search Console Verification */}
-        <meta name="google-site-verification" content="akszElkvlXDFlrXOR-3T8rtxnmCTRCg8bRTDEHmXoWc" />
+        <meta name="google-site-verification" content="g852qlWEbOFM-af7WZhlrUBgQKZXAIDgvcjrgAEuOfE" />
         
         {/* Script to prevent flash of wrong theme */}
         <script
