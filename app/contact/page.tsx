@@ -527,28 +527,103 @@ Email: ${formData.email}`;
                 {language === "fr" ? "Basée à Grand-Popo" : "Based in Grand-Popo"}
               </h2>
               <p className="text-muted-foreground mt-2">
-                {language === "fr" ? "Au cœur du Bénin, près de l'océan" : "In the heart of Benin, near the ocean"}
+                {language === "fr" ? "Au cœur du Bénin, près de l'océan Atlantique" : "In the heart of Benin, near the Atlantic Ocean"}
               </p>
             </AnimatedSection>
 
             <AnimatedSection delay={0.2}>
-              <div className="relative aspect-[21/9] rounded-3xl overflow-hidden bg-card border border-border">
-                <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-rose/5 to-gold/5">
-                  <div className="text-center">
-                    <motion.div 
-                      animate={{ y: [0, -5, 0] }}
-                      transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
-                      className="w-16 h-16 bg-rose rounded-full flex items-center justify-center mx-auto mb-4 shadow-lg"
-                    >
-                      <MapPin className="w-8 h-8 text-white" />
-                    </motion.div>
-                    <p className="font-serif text-2xl font-bold text-foreground">
-                      Grand-Popo
-                    </p>
-                    <p className="text-muted-foreground">
-                      {language === "fr" ? "Bénin, Afrique de l'Ouest" : "Benin, West Africa"}
-                    </p>
+              <div className="relative aspect-[21/9] rounded-3xl overflow-hidden bg-card border border-border shadow-xl">
+                {/* Google Maps Embed */}
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31712.449897460938!2d1.8225100000000001!3d6.280360000000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1024a9c8c8c8c8c8%3A0x1234567890abcdef!2sGrand-Popo%2C%20Benin!5e0!3m2!1sfr!2s!4v1640995200000!5m2!1sfr!2s"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  title="Grand-Popo, Bénin - Localisation de Synnova Tocloe"
+                  className="w-full h-full"
+                />
+                
+                {/* Overlay avec informations */}
+                <div className="absolute top-6 left-6 bg-white/95 backdrop-blur-sm rounded-2xl p-4 shadow-lg border border-border max-w-xs">
+                  <div className="flex items-center gap-3 mb-2">
+                    <div className="w-10 h-10 bg-rose rounded-full flex items-center justify-center">
+                      <MapPin className="w-5 h-5 text-white" />
+                    </div>
+                    <div>
+                      <p className="font-serif text-lg font-bold text-foreground">Grand-Popo</p>
+                      <p className="text-muted-foreground text-sm">Bénin, Afrique de l'Ouest</p>
+                    </div>
                   </div>
+                  <p className="text-muted-foreground text-sm">
+                    {language === "fr" 
+                      ? "Ville côtière historique du Bénin, connue pour sa culture et ses traditions."
+                      : "Historic coastal city of Benin, known for its culture and traditions."
+                    }
+                  </p>
+                </div>
+
+                {/* Badge distance depuis Cotonou */}
+                <div className="absolute bottom-6 right-6 bg-indigo/95 backdrop-blur-sm text-white rounded-xl p-3 shadow-lg">
+                  <p className="text-sm font-medium">
+                    {language === "fr" ? "À 1h30 de Cotonou" : "1h30 from Cotonou"}
+                  </p>
+                </div>
+              </div>
+            </AnimatedSection>
+
+            {/* Informations supplémentaires */}
+            <AnimatedSection delay={0.4} className="mt-12">
+              <div className="grid md:grid-cols-3 gap-6">
+                <div className="text-center p-6 rounded-2xl bg-card border border-border">
+                  <div className="w-12 h-12 bg-rose/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <MapPin className="w-6 h-6 text-rose" />
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {language === "fr" ? "Localisation" : "Location"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {language === "fr" 
+                      ? "Département du Mono, région côtière du Bénin"
+                      : "Mono Department, coastal region of Benin"
+                    }
+                  </p>
+                </div>
+
+                <div className="text-center p-6 rounded-2xl bg-card border border-border">
+                  <div className="w-12 h-12 bg-gold/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-gold" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/>
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {language === "fr" ? "Patrimoine" : "Heritage"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {language === "fr" 
+                      ? "Riche histoire culturelle et traditions ancestrales"
+                      : "Rich cultural history and ancestral traditions"
+                    }
+                  </p>
+                </div>
+
+                <div className="text-center p-6 rounded-2xl bg-card border border-border">
+                  <div className="w-12 h-12 bg-indigo/10 rounded-xl flex items-center justify-center mx-auto mb-4">
+                    <svg className="w-6 h-6 text-indigo" fill="currentColor" viewBox="0 0 24 24">
+                      <path d="M3.5 18.49l6-6.01 4 4L22 6.92l-1.41-1.41-7.09 7.97-4-4L2 16.99z"/>
+                    </svg>
+                  </div>
+                  <h3 className="font-semibold text-foreground mb-2">
+                    {language === "fr" ? "Accessibilité" : "Accessibility"}
+                  </h3>
+                  <p className="text-muted-foreground text-sm">
+                    {language === "fr" 
+                      ? "Facilement accessible depuis Cotonou et Lomé"
+                      : "Easily accessible from Cotonou and Lomé"
+                    }
+                  </p>
                 </div>
               </div>
             </AnimatedSection>
