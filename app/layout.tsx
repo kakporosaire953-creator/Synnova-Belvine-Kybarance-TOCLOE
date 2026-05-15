@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Inter, Playfair_Display } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { AppProvider } from "@/lib/app-context";
+import { SimpleChatbot } from "@/components/simple-chatbot";
 import "./globals.css";
 
 const inter = Inter({
@@ -221,6 +222,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300">
         <AppProvider>
           {children}
+          <SimpleChatbot />
         </AppProvider>
         {process.env.NODE_ENV === "production" && <Analytics />}
       </body>
