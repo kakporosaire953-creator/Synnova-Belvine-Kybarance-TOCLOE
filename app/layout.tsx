@@ -128,8 +128,8 @@ export default function RootLayout({
         <meta name="google-site-verification" content="g852qlWEbOFM-af7WZhlrUBgQKZXAIDgvcjrgAEuOfE" />
         
         {/* Favicon and Icons */}
-        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <link rel="shortcut icon" href="/favicon.svg" />
+        <link rel="icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSIjQzIxODVCIi8+CiAgPHBhdGggZD0iTTE2IDYgTDI2IDE2IEwxNiAyNiBMNiAxNiBaIiBmaWxsPSIjRkZGRkZGIi8+CiAgPHBhdGggZD0iTTE2IDEwIEwyMiAxNiBMMTYgMTYgWiIgZmlsbD0iIzFBMjM3RSIvPgogIDxwYXRoIGQ9Ik0xNiAxNiBMMTAgMjIgTDE2IDIyIFoiIGZpbGw9IiMxQTIzN0UiLz4KICA8bGluZSB4MT0iMTIiIHkxPSIxNiIgeDI9IjIwIiB5Mj0iMTYiIHN0cm9rZT0iI0Y5QTgyNSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGNpcmNsZSBjeD0iMjAiIGN5PSIxNiIgcj0iMSIgZmlsbD0iI0Y5QTgyNSIvPgo8L3N2Zz4K" type="image/svg+xml" />
+        <link rel="shortcut icon" href="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHZpZXdCb3g9IjAgMCAzMiAzMiIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KICA8cmVjdCB3aWR0aD0iMzIiIGhlaWdodD0iMzIiIHJ4PSI2IiBmaWxsPSIjQzIxODVCIi8+CiAgPHBhdGggZD0iTTE2IDYgTDI2IDE2IEwxNiAyNiBMNiAxNiBaIiBmaWxsPSIjRkZGRkZGIi8+CiAgPHBhdGggZD0iTTE2IDEwIEwyMiAxNiBMMTYgMTYgWiIgZmlsbD0iIzFBMjM3RSIvPgogIDxwYXRoIGQ9Ik0xNiAxNiBMMTAgMjIgTDE2IDIyIFoiIGZpbGw9IiMxQTIzN0UiLz4KICA8bGluZSB4MT0iMTIiIHkxPSIxNiIgeDI9IjIwIiB5Mj0iMTYiIHN0cm9rZT0iI0Y5QTgyNSIgc3Ryb2tlLXdpZHRoPSIyIi8+CiAgPGNpcmNsZSBjeD0iMjAiIGN5PSIxNiIgcj0iMSIgZmlsbD0iI0Y5QTgyNSIvPgo8L3N2Zz4K" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         
         {/* Script to prevent flash of wrong theme */}
