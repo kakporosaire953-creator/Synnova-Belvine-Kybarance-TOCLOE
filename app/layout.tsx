@@ -124,6 +124,9 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <head>
+        {/* Google Search Console Verification */}
+        <meta name="google-site-verification" content="akszElkvlXDFlrXOR-3T8rtxnmCTRCg8bRTDEHmXoWc" />
+        
         {/* Script to prevent flash of wrong theme */}
         <script
           dangerouslySetInnerHTML={{
