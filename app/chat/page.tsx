@@ -62,11 +62,6 @@ export default function ChatPage() {
     };
     setMessages([welcomeMessage]);
   }, []);
-      isBot: true,
-      timestamp: new Date(),
-    };
-    setMessages([welcomeMessage]);
-  }, []);
 
   const sendMessage = async (messageText?: string) => {
     const textToSend = messageText || inputValue.trim();
