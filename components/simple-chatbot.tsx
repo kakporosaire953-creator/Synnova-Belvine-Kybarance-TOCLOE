@@ -46,7 +46,7 @@ export function SimpleChatbot() {
     
     // Réponse automatique simple
     setTimeout(() => {
-      addBotMessage("Merci pour votre message ! Pour une réponse personnalisée, contactez-moi sur WhatsApp : XXX ou par email : synnovatocloe@gmail.com");
+      addBotMessage("Merci pour votre message ! Pour une réponse personnalisée, contactez-moi sur WhatsApp : XXXXXXXXXX ou par email : synnovatocloe@gmail.com");
     }, 1000);
   };
 
