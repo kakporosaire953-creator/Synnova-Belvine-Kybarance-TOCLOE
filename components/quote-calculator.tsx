@@ -13,12 +13,12 @@ interface QuoteData {
 }
 
 const eventTypes = [
-  { id: "conference", label: "Conférence/Séminaire", basePrice: 150000 },
-  { id: "wedding", label: "Mariage", basePrice: 200000 },
-  { id: "corporate", label: "Événement Corporate", basePrice: 180000 },
-  { id: "festival", label: "Festival/Concert", basePrice: 250000 },
-  { id: "birthday", label: "Anniversaire", basePrice: 120000 },
-  { id: "launch", label: "Lancement Produit", basePrice: 220000 },
+  { id: "conference", label: "Conférence/Séminaire", basePrice: 0 },
+  { id: "wedding", label: "Mariage", basePrice: 0 },
+  { id: "corporate", label: "Événement Corporate", basePrice: 0 },
+  { id: "festival", label: "Festival/Concert", basePrice: 0 },
+  { id: "birthday", label: "Anniversaire", basePrice: 0 },
+  { id: "launch", label: "Lancement Produit", basePrice: 0 },
 ];
 
 const durations = [
@@ -37,11 +37,11 @@ const participantRanges = [
 ];
 
 const additionalServices = [
-  { id: "mc", label: "Maîtrise de cérémonie", price: 50000 },
-  { id: "sound", label: "Coordination technique", price: 30000 },
-  { id: "content", label: "Création de contenu", price: 40000 },
-  { id: "social", label: "Couverture réseaux sociaux", price: 25000 },
-  { id: "consultation", label: "Consultation pré-événement", price: 20000 },
+  { id: "mc", label: "Maîtrise de cérémonie", price: 0 },
+  { id: "sound", label: "Coordination technique", price: 0 },
+  { id: "content", label: "Création de contenu", price: 0 },
+  { id: "social", label: "Couverture réseaux sociaux", price: 0 },
+  { id: "consultation", label: "Consultation pré-événement", price: 0 },
 ];
 
 export function QuoteCalculator() {
@@ -80,7 +80,7 @@ export function QuoteCalculator() {
   };
 
   const formatPrice = (price: number) => {
-    return new Intl.NumberFormat('fr-FR').format(price) + ' FCFA';
+    return 'À préciser';
   };
 
   const nextStep = () => {

@@ -225,7 +225,7 @@ NEXT_PUBLIC_EMAIL=synnovatocloe@gmail.com
 ## Contact
 
 - **Email** : synnovatocloe@gmail.com
-- **WhatsApp** : +229 90 12 34 56
+- **WhatsApp** : XXX
 - **Facebook** : [@synnovalumiere](https://facebook.com/synnovalumiere)
 - **Instagram** : [@_synnova](https://instagram.com/_synnova)
 - **TikTok** : [@_synnova](https://tiktok.com/@_synnova)

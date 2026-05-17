@@ -264,7 +264,7 @@ Email: ${formData.email}`;
                     </div>
                     <div>
                       <h3 className="font-semibold text-foreground group-hover:text-rose transition-colors">WhatsApp</h3>
-                      <p className="text-muted-foreground mt-1">+229 90 12 34 56</p>
+                      <p className="text-muted-foreground mt-1">XXX</p>
                     </div>
                   </a>
                 </div>
