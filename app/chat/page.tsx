@@ -141,7 +141,7 @@ export default function ChatPage() {
           msg.id === typingId 
             ? { 
                 ...msg, 
-                text: `Désolé, je rencontre un problème technique. 😔\n\nVous pouvez contacter Synnova directement :\n📱 XXXXXXXXXX\n📧 synnovatocloe@gmail.com`,
+                text: `Désolé, je rencontre un problème technique.\n\nVous pouvez contacter Synnova directement :\nWhatsApp : XXXXXXXXXX\nEmail : synnovatocloe@gmail.com`,
                 isTyping: false 
               }
             : msg
