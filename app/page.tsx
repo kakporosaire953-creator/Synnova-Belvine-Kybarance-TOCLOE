@@ -7,6 +7,7 @@ import { ArrowRight, Mic, MessageCircle, Film, Leaf } from "lucide-react";
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { PageLoader } from "@/components/page-loader";
+import { FAQSection } from "@/components/faq-section";
 import {
   AnimatedSection,
   StaggerContainer,
@@ -80,6 +81,33 @@ const highlightsEn = [
   { number: "5+", label: "Years of experience" },
   { number: "50+", label: "Events hosted" },
   { number: "1000+", label: "People reached" },
+];
+
+const faqItems = [
+  {
+    question: "Quels types d'événements Synnova anime-t-elle ?",
+    answer: "Synnova anime une grande variété d'événements :\n\n• Mariages traditionnels béninois et modernes\n• Festivals culturels et concerts\n• Événements corporate et séminaires\n• Conférences et lancements de produits\n• Anniversaires et célébrations privées\n\nAvec plus de 5 années d'expérience, elle s'adapte à tous types d'événements, des plus intimes (50 personnes) aux plus grands (5000+ spectateurs)."
+  },
+  {
+    question: "Comment obtenir un devis pour mes événements ?",
+    answer: "Pour obtenir un devis personnalisé :\n\n1. Contactez Synnova par WhatsApp (XXXXXXXXXX) ou email (synnovatocloe@gmail.com)\n2. Décrivez votre événement (type, date, lieu, nombre d'invités)\n3. Précisez les services souhaités (animation, MC, coordination technique...)\n4. Vous recevrez un devis détaillé sous 24h\n\nLes tarifs sont adaptés selon le type d'événement, la durée, la localisation et les services additionnels demandés."
+  },
+  {
+    question: "Synnova se déplace-t-elle en dehors de Grand-Popo ?",
+    answer: "Oui, Synnova intervient dans plusieurs zones :\n\n• Grand-Popo (base principale) - pas de frais de déplacement\n• Cotonou et environs - frais de transport inclus\n• Tout le Bénin - supplément de 30% pour les frais de déplacement\n• Lomé, Togo - collaborations spéciales\n• Autres pays de la région - sur demande\n\nElle privilégie les événements de qualité et s'adapte à votre localisation pour vous offrir le meilleur service."
+  },
+  {
+    question: "Quelles sont les spécialités culturelles de Synnova ?",
+    answer: "Synnova maîtrise parfaitement la culture béninoise :\n\n• Traditions vodoun et danses locales (Adjogan, Sakpata, Tchinkounmé)\n• Animation bilingue (français et langues locales : Fon, Yoruba)\n• Collaboration avec griots et musiciens traditionnels\n• Respect des protocoles culturels béninois\n• Intégration harmonieuse des traditions dans les événements modernes\n\nCette expertise culturelle unique fait d'elle la référence pour les événements authentiquement béninois."
+  },
+  {
+    question: "Synnova propose-t-elle d'autres services que l'animation ?",
+    answer: "Oui, Synnova offre une gamme complète de services :\n\n🎤 Animation & Événements\n• Maîtrise de cérémonie\n• Coordination technique\n• Gestion de foules importantes\n\n📱 Communication Digitale\n• Stratégie de communication\n• Création de contenu\n• Community management\n• Couverture réseaux sociaux\n\n🎬 Cinéma & Régie\n• Actrice (films béninois)\n• Coordination artistique\n• Direction d'acteurs\n\n🌱 Entrepreneuriat Social\n• Emballages biodégradables\n• Solutions éco-responsables"
+  },
+  {
+    question: "Comment se déroule la préparation d'un événement avec Synnova ?",
+    answer: "Le processus de collaboration est structuré :\n\n1. **Contact initial** - WhatsApp/Email pour premier échange\n2. **Brief créatif** - Discussion détaillée de vos besoins et attentes\n3. **Devis personnalisé** - Proposition sous 24h avec tarifs transparents\n4. **Rencontre de préparation** - Si nécessaire, pour finaliser les détails\n5. **Confirmation** - Signature et acompte de 30%\n6. **Préparation** - Coordination avec vos équipes et prestataires\n7. **Exécution** - Animation professionnelle le jour J\n8. **Suivi** - Retour post-événement et satisfaction client\n\nDélai minimum : 48h (urgences possibles selon disponibilité)"
+  }
 ];
 
 export default function HomePage() {
@@ -467,6 +495,14 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+
+        {/* FAQ Section */}
+        <FAQSection 
+          title="Questions Fréquentes"
+          subtitle="Tout ce que vous devez savoir sur mes services d'animation et de communication"
+          items={faqItems}
+          className="bg-background"
+        />
 
         {/* CTA Section */}
         <section className="py-24 bg-rose relative overflow-hidden">
