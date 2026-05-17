@@ -56,7 +56,12 @@ export default function ChatPage() {
     // Message de bienvenue
     const welcomeMessage: Message = {
       id: 'welcome',
-      text: "Salut ! 👋 Je suis l'assistant IA de Synnova Tocloe.\n\n✨ Je peux maintenant répondre à TOUTES vos questions !\n\n🎤 Portfolio de Synnova\n🌍 Questions générales\n💬 Discussions libres\n🎯 Conseils personnalisés\n\nQue voulez-vous savoir ?",
+      text: "Salut ! Je suis l'assistant IA de Synnova Tocloe.\n\nJe peux maintenant répondre à TOUTES vos questions !\n\nPortfolio de Synnova\nQuestions générales\nDiscussions libres\nConseils personnalisés\n\nQue voulez-vous savoir ?",
+      isBot: true,
+      timestamp: new Date(),
+    };
+    setMessages([welcomeMessage]);
+  }, []);
       isBot: true,
       timestamp: new Date(),
     };
@@ -252,7 +257,7 @@ export default function ChatPage() {
               className="space-y-4"
             >
               <p className="text-sm text-gray-600 dark:text-gray-400 font-medium text-center">
-                💡 Suggestions pour commencer :
+                Suggestions pour commencer :
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
                 {quickSuggestions.map((suggestion, index) => (

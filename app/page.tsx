@@ -102,7 +102,7 @@ const faqItems = [
   },
   {
     question: "Synnova propose-t-elle d'autres services que l'animation ?",
-    answer: "Oui, Synnova offre une gamme complète de services :\n\n🎤 Animation & Événements\n• Maîtrise de cérémonie\n• Coordination technique\n• Gestion de foules importantes\n\n📱 Communication Digitale\n• Stratégie de communication\n• Création de contenu\n• Community management\n• Couverture réseaux sociaux\n\n🎬 Cinéma & Régie\n• Actrice (films béninois)\n• Coordination artistique\n• Direction d'acteurs\n\n🌱 Entrepreneuriat Social\n• Emballages biodégradables\n• Solutions éco-responsables",
+    answer: "Oui, Synnova offre une gamme complète de services :\n\nAnimation & Événements\n• Maîtrise de cérémonie\n• Coordination technique\n• Gestion de foules importantes\n\nCommunication Digitale\n• Stratégie de communication\n• Création de contenu\n• Community management\n• Couverture réseaux sociaux\n\nCinéma & Régie\n• Actrice (films béninois)\n• Coordination artistique\n• Direction d'acteurs\n\nEntrepreneuriat Social\n• Emballages biodégradables\n• Solutions éco-responsables",
     icon: faCogs
   },
   {
@@ -497,133 +497,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* Blog/News Section */}
-        <section className="py-24 lg:py-32 bg-card">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <AnimatedSection className="text-center mb-16">
-              <span className="text-rose font-medium tracking-widest uppercase text-sm">
-                Actualités
-              </span>
-              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mt-4 tracking-tight leading-tight">
-                Dernières <span className="text-rose">Nouvelles</span>
-              </h2>
-              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
-                Suivez les derniers événements, projets et actualités de Synnova Tocloe
-              </p>
-            </AnimatedSection>
-
-            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <StaggerItem>
-                <motion.article
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-background rounded-2xl overflow-hidden border border-border hover:border-rose/30 transition-all duration-300 shadow-sm hover:shadow-xl"
-                >
-                  <div className="aspect-video bg-gradient-to-br from-rose/20 to-indigo/20 flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 bg-rose/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Mic className="w-8 h-8 text-rose" />
-                      </div>
-                      <h3 className="font-bold text-lg text-foreground">Événements à venir</h3>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                      <span className="w-2 h-2 bg-rose rounded-full"></span>
-                      Décembre 2024
-                    </div>
-                    <h3 className="font-serif text-xl font-bold text-foreground mb-3">
-                      Saison des Mariages 2025
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Préparez dès maintenant votre mariage de rêve avec Synnova. Réservations ouvertes pour la saison 2025.
-                    </p>
-                    <Link 
-                      href="/contact"
-                      className="text-rose font-medium text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
-                    >
-                      Réserver maintenant
-                      <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </motion.article>
-              </StaggerItem>
-
-              <StaggerItem>
-                <motion.article
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-background rounded-2xl overflow-hidden border border-border hover:border-rose/30 transition-all duration-300 shadow-sm hover:shadow-xl"
-                >
-                  <div className="aspect-video bg-gradient-to-br from-indigo/20 to-gold/20 flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 bg-indigo/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <MessageCircle className="w-8 h-8 text-indigo" />
-                      </div>
-                      <h3 className="font-bold text-lg text-foreground">Communication</h3>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                      <span className="w-2 h-2 bg-indigo rounded-full"></span>
-                      Novembre 2024
-                    </div>
-                    <h3 className="font-serif text-xl font-bold text-foreground mb-3">
-                      Stratégies Digitales 2025
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Découvrez les nouvelles tendances en communication digitale et réseaux sociaux pour vos événements.
-                    </p>
-                    <Link 
-                      href="/contact"
-                      className="text-indigo font-medium text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
-                    >
-                      En savoir plus
-                      <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </motion.article>
-              </StaggerItem>
-
-              <StaggerItem>
-                <motion.article
-                  whileHover={{ y: -8, scale: 1.02 }}
-                  transition={{ duration: 0.3 }}
-                  className="bg-background rounded-2xl overflow-hidden border border-border hover:border-rose/30 transition-all duration-300 shadow-sm hover:shadow-xl"
-                >
-                  <div className="aspect-video bg-gradient-to-br from-gold/20 to-rose/20 flex items-center justify-center">
-                    <div className="text-center p-6">
-                      <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <Leaf className="w-8 h-8 text-gold" />
-                      </div>
-                      <h3 className="font-bold text-lg text-foreground">Éco-responsable</h3>
-                    </div>
-                  </div>
-                  <div className="p-6">
-                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
-                      <span className="w-2 h-2 bg-gold rounded-full"></span>
-                      Octobre 2024
-                    </div>
-                    <h3 className="font-serif text-xl font-bold text-foreground mb-3">
-                      Emballages Biodégradables
-                    </h3>
-                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
-                      Synnova lance sa gamme d'emballages éco-responsables pour des événements durables au Bénin.
-                    </p>
-                    <Link 
-                      href="/univers"
-                      className="text-gold font-medium text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
-                    >
-                      Découvrir le projet
-                      <ArrowRight size={14} />
-                    </Link>
-                  </div>
-                </motion.article>
-              </StaggerItem>
-            </StaggerContainer>
-          </div>
-        </section>
-
         {/* FAQ Section */}
         <FAQSection 
           title="Questions Fréquentes"
@@ -653,23 +526,11 @@ export default function HomePage() {
             <p className="mt-4 text-white/80 text-lg max-w-2xl mx-auto">
               {t("cta.description")}
             </p>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
-              <MagneticButton>
-                <a 
-                  href="mailto:synnovatocloe@gmail.com?subject=Demande de devis gratuit&body=Bonjour Synnova,%0D%0A%0D%0AJe souhaiterais obtenir un devis gratuit pour mon événement.%0D%0A%0D%0AType d'événement :%0D%0ADate prévue :%0D%0ALieu :%0D%0ANombre d'invités :%0D%0AServices souhaités :%0D%0A%0D%0AMerci !"
-                  className="bg-white text-rose px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 group hover:bg-gold hover:text-indigo transition-colors duration-300 shadow-lg hover:shadow-xl"
-                >
-                  📧 Devis Gratuit
-                  <ArrowRight
-                    size={18}
-                    className="group-hover:translate-x-1 transition-transform"
-                  />
-                </a>
-              </MagneticButton>
+            <div className="mt-8">
               <MagneticButton>
                 <Link href="/contact">
-                  <button className="border-2 border-white text-white px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 group hover:bg-white hover:text-rose transition-colors duration-300">
-                    🎤 Réserver Maintenant
+                  <button className="bg-white text-rose px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 group hover:bg-gold hover:text-indigo transition-colors duration-300">
+                    {t("cta.button")}
                     <ArrowRight
                       size={18}
                       className="group-hover:translate-x-1 transition-transform"

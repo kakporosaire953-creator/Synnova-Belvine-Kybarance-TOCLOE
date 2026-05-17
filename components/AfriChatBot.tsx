@@ -141,9 +141,9 @@ export function AfriChatBot() {
                     <Bot className="w-4 h-4 text-white" />
                   </div>
                   <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl rounded-tl-md p-3 text-sm">
-                    Salut ! 👋 Je suis l'assistant IA de Synnova.
+                    Salut ! Je suis l'assistant IA de Synnova.
                     <br /><br />
-                    ✨ <strong>Nouveau :</strong> Je peux maintenant répondre à TOUTES vos questions !
+                    <strong>Nouveau :</strong> Je peux maintenant répondre à TOUTES vos questions !
                   </div>
                 </div>
               </div>
@@ -151,16 +151,16 @@ export function AfriChatBot() {
               {/* Fonctionnalités */}
               <div className="grid grid-cols-2 gap-2 text-xs">
                 <div className="bg-rose/10 text-rose p-2 rounded-lg text-center">
-                  🎤 Portfolio
+                  Portfolio
                 </div>
                 <div className="bg-indigo/10 text-indigo p-2 rounded-lg text-center">
-                  🌍 Questions générales
+                  Questions générales
                 </div>
                 <div className="bg-gold/10 text-gold p-2 rounded-lg text-center">
-                  💬 Discussion libre
+                  Discussion libre
                 </div>
                 <div className="bg-green-500/10 text-green-600 p-2 rounded-lg text-center">
-                  🎯 Conseils
+                  Conseils
                 </div>
               </div>
 
