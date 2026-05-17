@@ -218,6 +218,76 @@ export default function RootLayout({
             })
           }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Service",
+              "name": "Services d'Animation Événementielle",
+              "provider": {
+                "@type": "Person",
+                "name": "Synnova Tocloe"
+              },
+              "serviceType": "Animation d'événements",
+              "areaServed": {
+                "@type": "Country",
+                "name": "Bénin"
+              },
+              "availableChannel": {
+                "@type": "ServiceChannel",
+                "serviceUrl": "https://synnova-belvine-kybarance-tocloe.vercel.app/contact",
+                "servicePhone": "XXXXXXXXXX",
+                "serviceSmsNumber": "XXXXXXXXXX"
+              },
+              "offers": [
+                {
+                  "@type": "Offer",
+                  "name": "Animation Mariages",
+                  "description": "Animation complète de mariages traditionnels et modernes au Bénin"
+                },
+                {
+                  "@type": "Offer", 
+                  "name": "Événements Corporate",
+                  "description": "Animation professionnelle pour séminaires, conférences et lancements"
+                },
+                {
+                  "@type": "Offer",
+                  "name": "Festivals Culturels",
+                  "description": "Animation de festivals et événements culturels béninois"
+                }
+              ]
+            })
+          }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify({
+              "@context": "https://schema.org",
+              "@type": "Event",
+              "name": "Services d'Animation Synnova Tocloe",
+              "description": "Animation professionnelle d'événements au Bénin par Synnova Tocloe",
+              "performer": {
+                "@type": "Person",
+                "name": "Synnova Tocloe"
+              },
+              "location": {
+                "@type": "Place",
+                "name": "Bénin",
+                "address": {
+                  "@type": "PostalAddress",
+                  "addressCountry": "BJ"
+                }
+              },
+              "organizer": {
+                "@type": "Person",
+                "name": "Synnova Tocloe",
+                "url": "https://synnova-belvine-kybarance-tocloe.vercel.app"
+              }
+            })
+          }}
+        />
       </head>
       <body className="font-sans antialiased bg-background text-foreground transition-colors duration-300">
         <AppProvider>

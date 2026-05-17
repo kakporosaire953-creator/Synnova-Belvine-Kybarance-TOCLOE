@@ -1,9 +1,8 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { systemPrompt } from '@/lib/africhat-context';
 
 export async function POST(request: NextRequest) {
   try {
-    const { message, conversationHistory = [] } = await request.json();
+    const { message } = await request.json();
 
     // Validation des inputs
     if (!message || typeof message !== 'string') {

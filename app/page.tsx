@@ -4,6 +4,14 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import Image from "next/image";
 import { ArrowRight, Mic, MessageCircle, Film, Leaf } from "lucide-react";
+import { 
+  faCalendarAlt, 
+  faCalculator, 
+  faMapMarkerAlt, 
+  faCrown, 
+  faCogs, 
+  faClipboardList
+} from '@fortawesome/free-solid-svg-icons';
 import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { PageLoader } from "@/components/page-loader";
@@ -71,49 +79,42 @@ const facettesEn = [
   },
 ];
 
-const highlightsFr = [
-  { number: "5+", label: "Années d'expérience" },
-  { number: "50+", label: "Événements animés" },
-  { number: "1000+", label: "Personnes touchées" },
-];
-
-const highlightsEn = [
-  { number: "5+", label: "Years of experience" },
-  { number: "50+", label: "Events hosted" },
-  { number: "1000+", label: "People reached" },
-];
-
 const faqItems = [
   {
     question: "Quels types d'événements Synnova anime-t-elle ?",
-    answer: "Synnova anime une grande variété d'événements :\n\n• Mariages traditionnels béninois et modernes\n• Festivals culturels et concerts\n• Événements corporate et séminaires\n• Conférences et lancements de produits\n• Anniversaires et célébrations privées\n\nAvec plus de 5 années d'expérience, elle s'adapte à tous types d'événements, des plus intimes (50 personnes) aux plus grands (5000+ spectateurs)."
+    answer: "Synnova anime une grande variété d'événements :\n\n• Mariages traditionnels béninois et modernes\n• Festivals culturels et concerts\n• Événements corporate et séminaires\n• Conférences et lancements de produits\n• Anniversaires et célébrations privées\n\nAvec plus de 5 années d'expérience, elle s'adapte à tous types d'événements, des plus intimes (50 personnes) aux plus grands (5000+ spectateurs).",
+    icon: faCalendarAlt
   },
   {
     question: "Comment obtenir un devis pour mes événements ?",
-    answer: "Pour obtenir un devis personnalisé :\n\n1. Contactez Synnova par WhatsApp (XXXXXXXXXX) ou email (synnovatocloe@gmail.com)\n2. Décrivez votre événement (type, date, lieu, nombre d'invités)\n3. Précisez les services souhaités (animation, MC, coordination technique...)\n4. Vous recevrez un devis détaillé sous 24h\n\nLes tarifs sont adaptés selon le type d'événement, la durée, la localisation et les services additionnels demandés."
+    answer: "Pour obtenir un devis personnalisé :\n\n1. Contactez Synnova par WhatsApp (XXXXXXXXXX) ou email (synnovatocloe@gmail.com)\n2. Décrivez votre événement (type, date, lieu, nombre d'invités)\n3. Précisez les services souhaités (animation, MC, coordination technique...)\n4. Vous recevrez un devis détaillé sous 24h\n\nLes tarifs sont adaptés selon le type d'événement, la durée, la localisation et les services additionnels demandés.",
+    icon: faCalculator
   },
   {
     question: "Synnova se déplace-t-elle en dehors de Grand-Popo ?",
-    answer: "Oui, Synnova intervient dans plusieurs zones :\n\n• Grand-Popo (base principale) - pas de frais de déplacement\n• Cotonou et environs - frais de transport inclus\n• Tout le Bénin - supplément de 30% pour les frais de déplacement\n• Lomé, Togo - collaborations spéciales\n• Autres pays de la région - sur demande\n\nElle privilégie les événements de qualité et s'adapte à votre localisation pour vous offrir le meilleur service."
+    answer: "Oui, Synnova intervient dans plusieurs zones :\n\n• Grand-Popo (base principale) - pas de frais de déplacement\n• Cotonou et environs - frais de transport inclus\n• Tout le Bénin - supplément de 30% pour les frais de déplacement\n• Lomé, Togo - collaborations spéciales\n• Autres pays de la région - sur demande\n\nElle privilégie les événements de qualité et s'adapte à votre localisation pour vous offrir le meilleur service.",
+    icon: faMapMarkerAlt
   },
   {
     question: "Quelles sont les spécialités culturelles de Synnova ?",
-    answer: "Synnova maîtrise parfaitement la culture béninoise :\n\n• Traditions vodoun et danses locales (Adjogan, Sakpata, Tchinkounmé)\n• Animation bilingue (français et langues locales : Fon, Yoruba)\n• Collaboration avec griots et musiciens traditionnels\n• Respect des protocoles culturels béninois\n• Intégration harmonieuse des traditions dans les événements modernes\n\nCette expertise culturelle unique fait d'elle la référence pour les événements authentiquement béninois."
+    answer: "Synnova maîtrise parfaitement la culture béninoise :\n\n• Traditions vodoun et danses locales (Adjogan, Sakpata, Tchinkounmé)\n• Animation bilingue (français et langues locales : Fon, Yoruba)\n• Collaboration avec griots et musiciens traditionnels\n• Respect des protocoles culturels béninois\n• Intégration harmonieuse des traditions dans les événements modernes\n\nCette expertise culturelle unique fait d'elle la référence pour les événements authentiquement béninois.",
+    icon: faCrown
   },
   {
     question: "Synnova propose-t-elle d'autres services que l'animation ?",
-    answer: "Oui, Synnova offre une gamme complète de services :\n\n🎤 Animation & Événements\n• Maîtrise de cérémonie\n• Coordination technique\n• Gestion de foules importantes\n\n📱 Communication Digitale\n• Stratégie de communication\n• Création de contenu\n• Community management\n• Couverture réseaux sociaux\n\n🎬 Cinéma & Régie\n• Actrice (films béninois)\n• Coordination artistique\n• Direction d'acteurs\n\n🌱 Entrepreneuriat Social\n• Emballages biodégradables\n• Solutions éco-responsables"
+    answer: "Oui, Synnova offre une gamme complète de services :\n\n🎤 Animation & Événements\n• Maîtrise de cérémonie\n• Coordination technique\n• Gestion de foules importantes\n\n📱 Communication Digitale\n• Stratégie de communication\n• Création de contenu\n• Community management\n• Couverture réseaux sociaux\n\n🎬 Cinéma & Régie\n• Actrice (films béninois)\n• Coordination artistique\n• Direction d'acteurs\n\n🌱 Entrepreneuriat Social\n• Emballages biodégradables\n• Solutions éco-responsables",
+    icon: faCogs
   },
   {
     question: "Comment se déroule la préparation d'un événement avec Synnova ?",
-    answer: "Le processus de collaboration est structuré :\n\n1. **Contact initial** - WhatsApp/Email pour premier échange\n2. **Brief créatif** - Discussion détaillée de vos besoins et attentes\n3. **Devis personnalisé** - Proposition sous 24h avec tarifs transparents\n4. **Rencontre de préparation** - Si nécessaire, pour finaliser les détails\n5. **Confirmation** - Signature et acompte de 30%\n6. **Préparation** - Coordination avec vos équipes et prestataires\n7. **Exécution** - Animation professionnelle le jour J\n8. **Suivi** - Retour post-événement et satisfaction client\n\nDélai minimum : 48h (urgences possibles selon disponibilité)"
+    answer: "Le processus de collaboration est structuré :\n\n1. **Contact initial** - WhatsApp/Email pour premier échange\n2. **Brief créatif** - Discussion détaillée de vos besoins et attentes\n3. **Devis personnalisé** - Proposition sous 24h avec tarifs transparents\n4. **Rencontre de préparation** - Si nécessaire, pour finaliser les détails\n5. **Confirmation** - Signature et acompte de 30%\n6. **Préparation** - Coordination avec vos équipes et prestataires\n7. **Exécution** - Animation professionnelle le jour J\n8. **Suivi** - Retour post-événement et satisfaction client\n\nDélai minimum : 48h (urgences possibles selon disponibilité)",
+    icon: faClipboardList
   }
 ];
 
 export default function HomePage() {
   const { language, t } = useTranslation();
   const facettes = language === "fr" ? facettesFr : facettesEn;
-  const highlights = language === "fr" ? highlightsFr : highlightsEn;
 
   return (
     <PageLoader>
@@ -496,6 +497,133 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Blog/News Section */}
+        <section className="py-24 lg:py-32 bg-card">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <AnimatedSection className="text-center mb-16">
+              <span className="text-rose font-medium tracking-widest uppercase text-sm">
+                Actualités
+              </span>
+              <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-foreground mt-4 tracking-tight leading-tight">
+                Dernières <span className="text-rose">Nouvelles</span>
+              </h2>
+              <p className="mt-4 text-muted-foreground max-w-2xl mx-auto text-lg">
+                Suivez les derniers événements, projets et actualités de Synnova Tocloe
+              </p>
+            </AnimatedSection>
+
+            <StaggerContainer className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <StaggerItem>
+                <motion.article
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-background rounded-2xl overflow-hidden border border-border hover:border-rose/30 transition-all duration-300 shadow-sm hover:shadow-xl"
+                >
+                  <div className="aspect-video bg-gradient-to-br from-rose/20 to-indigo/20 flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <div className="w-16 h-16 bg-rose/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Mic className="w-8 h-8 text-rose" />
+                      </div>
+                      <h3 className="font-bold text-lg text-foreground">Événements à venir</h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                      <span className="w-2 h-2 bg-rose rounded-full"></span>
+                      Décembre 2024
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-foreground mb-3">
+                      Saison des Mariages 2025
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      Préparez dès maintenant votre mariage de rêve avec Synnova. Réservations ouvertes pour la saison 2025.
+                    </p>
+                    <Link 
+                      href="/contact"
+                      className="text-rose font-medium text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
+                    >
+                      Réserver maintenant
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </motion.article>
+              </StaggerItem>
+
+              <StaggerItem>
+                <motion.article
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-background rounded-2xl overflow-hidden border border-border hover:border-rose/30 transition-all duration-300 shadow-sm hover:shadow-xl"
+                >
+                  <div className="aspect-video bg-gradient-to-br from-indigo/20 to-gold/20 flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <div className="w-16 h-16 bg-indigo/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <MessageCircle className="w-8 h-8 text-indigo" />
+                      </div>
+                      <h3 className="font-bold text-lg text-foreground">Communication</h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                      <span className="w-2 h-2 bg-indigo rounded-full"></span>
+                      Novembre 2024
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-foreground mb-3">
+                      Stratégies Digitales 2025
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      Découvrez les nouvelles tendances en communication digitale et réseaux sociaux pour vos événements.
+                    </p>
+                    <Link 
+                      href="/contact"
+                      className="text-indigo font-medium text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
+                    >
+                      En savoir plus
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </motion.article>
+              </StaggerItem>
+
+              <StaggerItem>
+                <motion.article
+                  whileHover={{ y: -8, scale: 1.02 }}
+                  transition={{ duration: 0.3 }}
+                  className="bg-background rounded-2xl overflow-hidden border border-border hover:border-rose/30 transition-all duration-300 shadow-sm hover:shadow-xl"
+                >
+                  <div className="aspect-video bg-gradient-to-br from-gold/20 to-rose/20 flex items-center justify-center">
+                    <div className="text-center p-6">
+                      <div className="w-16 h-16 bg-gold/20 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <Leaf className="w-8 h-8 text-gold" />
+                      </div>
+                      <h3 className="font-bold text-lg text-foreground">Éco-responsable</h3>
+                    </div>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center gap-2 text-sm text-muted-foreground mb-3">
+                      <span className="w-2 h-2 bg-gold rounded-full"></span>
+                      Octobre 2024
+                    </div>
+                    <h3 className="font-serif text-xl font-bold text-foreground mb-3">
+                      Emballages Biodégradables
+                    </h3>
+                    <p className="text-muted-foreground text-sm leading-relaxed mb-4">
+                      Synnova lance sa gamme d'emballages éco-responsables pour des événements durables au Bénin.
+                    </p>
+                    <Link 
+                      href="/univers"
+                      className="text-gold font-medium text-sm inline-flex items-center gap-1 hover:gap-2 transition-all"
+                    >
+                      Découvrir le projet
+                      <ArrowRight size={14} />
+                    </Link>
+                  </div>
+                </motion.article>
+              </StaggerItem>
+            </StaggerContainer>
+          </div>
+        </section>
+
         {/* FAQ Section */}
         <FAQSection 
           title="Questions Fréquentes"
@@ -525,11 +653,23 @@ export default function HomePage() {
             <p className="mt-4 text-white/80 text-lg max-w-2xl mx-auto">
               {t("cta.description")}
             </p>
-            <div className="mt-8">
+            <div className="mt-8 flex flex-col sm:flex-row gap-4 justify-center">
+              <MagneticButton>
+                <a 
+                  href="mailto:synnovatocloe@gmail.com?subject=Demande de devis gratuit&body=Bonjour Synnova,%0D%0A%0D%0AJe souhaiterais obtenir un devis gratuit pour mon événement.%0D%0A%0D%0AType d'événement :%0D%0ADate prévue :%0D%0ALieu :%0D%0ANombre d'invités :%0D%0AServices souhaités :%0D%0A%0D%0AMerci !"
+                  className="bg-white text-rose px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 group hover:bg-gold hover:text-indigo transition-colors duration-300 shadow-lg hover:shadow-xl"
+                >
+                  📧 Devis Gratuit
+                  <ArrowRight
+                    size={18}
+                    className="group-hover:translate-x-1 transition-transform"
+                  />
+                </a>
+              </MagneticButton>
               <MagneticButton>
                 <Link href="/contact">
-                  <button className="bg-white text-rose px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 group hover:bg-gold hover:text-indigo transition-colors duration-300">
-                    {t("cta.button")}
+                  <button className="border-2 border-white text-white px-10 py-4 rounded-full font-bold inline-flex items-center gap-2 group hover:bg-white hover:text-rose transition-colors duration-300">
+                    🎤 Réserver Maintenant
                     <ArrowRight
                       size={18}
                       className="group-hover:translate-x-1 transition-transform"

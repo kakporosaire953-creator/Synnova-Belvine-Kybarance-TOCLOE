@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { 
   Send, 
   Bot, 
@@ -63,40 +63,39 @@ export default function ChatPage() {
     setMessages([welcomeMessage]);
   }, []);
 
-  const addMessage = (text: string, isBot: boolean, isTyping = false) => {
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      text,
-      isBot,
-      timestamp: new Date(),
-      isTyping,
-    };
-    setMessages(prev => [...prev, newMessage]);
-    return newMessage.id;
-  };
-
-  const updateMessage = (id: string, text: string) => {
-    setMessages(prev => 
-      prev.map(msg => 
-        msg.id === id 
-          ? { ...msg, text, isTyping: false }
-          : msg
-      )
-    );
-  };
-
   const sendMessage = async (messageText?: string) => {
     const textToSend = messageText || inputValue.trim();
     if (!textToSend || isLoading) return;
 
-    // Ajouter le message utilisateur
-    addMessage(textToSend, false);
+    // Créer un ID unique pour le message utilisateur avec timestamp + random
+    const userMessageId = `user-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    
+    // Ajouter le message utilisateur avec ID unique
+    const userMessage: Message = {
+      id: userMessageId,
+      text: textToSend,
+      isBot: false,
+      timestamp: new Date(),
+    };
+    setMessages(prev => [...prev, userMessage]);
+    
     setInputValue('');
     setShowSuggestions(false);
     setIsLoading(true);
 
-    // Ajouter un message de typing
-    const typingId = addMessage('', true, true);
+    // Attendre un petit délai pour éviter les conflits d'ID
+    await new Promise(resolve => setTimeout(resolve, 50));
+
+    // Ajouter un message de typing avec ID unique différent
+    const typingId = `bot-typing-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const typingMessage: Message = {
+      id: typingId,
+      text: '',
+      isBot: true,
+      timestamp: new Date(),
+      isTyping: true,
+    };
+    setMessages(prev => [...prev, typingMessage]);
 
     try {
       const response = await fetch('/api/africhat', {
@@ -120,13 +119,28 @@ export default function ChatPage() {
       // Simuler l'effet de typing
       await new Promise(resolve => setTimeout(resolve, 1500));
       
-      updateMessage(typingId, data.response);
+      // Remplacer le message de typing par la réponse
+      setMessages(prev => 
+        prev.map(msg => 
+          msg.id === typingId 
+            ? { ...msg, text: data.response, isTyping: false }
+            : msg
+        )
+      );
 
     } catch (error: any) {
       console.error('Erreur chat:', error);
-      updateMessage(
-        typingId, 
-        `Désolé, je rencontre un problème technique. 😔\n\nVous pouvez contacter Synnova directement :\n📱 XXXXXXXXXX\n📧 synnovatocloe@gmail.com`
+      // Remplacer le message de typing par l'erreur
+      setMessages(prev => 
+        prev.map(msg => 
+          msg.id === typingId 
+            ? { 
+                ...msg, 
+                text: `Désolé, je rencontre un problème technique. 😔\n\nVous pouvez contacter Synnova directement :\n📱 XXXXXXXXXX\n📧 synnovatocloe@gmail.com`,
+                isTyping: false 
+              }
+            : msg
+        )
       );
     } finally {
       setIsLoading(false);
