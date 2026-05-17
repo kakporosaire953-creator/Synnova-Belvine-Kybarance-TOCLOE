@@ -1,338 +1,186 @@
 "use client";
 
-import { useState, useRef, useEffect } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { 
   MessageCircle, 
-  Send, 
   X, 
   Bot, 
-  User, 
   Sparkles,
-  Minimize2,
-  Maximize2
+  ExternalLink,
+  Zap
 } from 'lucide-react';
-
-interface Message {
-  id: string;
-  text: string;
-  isBot: boolean;
-  timestamp: Date;
-  isTyping?: boolean;
-}
-
-const quickSuggestions = [
-  "Quels sont ses services ?",
-  "Parle-moi de son expérience",
-  "Comment la contacter ?",
-  "Où est-elle basée ?",
-  "Quels sont ses tarifs ?",
-  "Ses spécialités culturelles ?"
-];
+import Link from 'next/link';
 
 export function AfriChatBot() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [isMinimized, setIsMinimized] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [inputValue, setInputValue] = useState('');
-  const [isLoading, setIsLoading] = useState(false);
-  const [showSuggestions, setShowSuggestions] = useState(true);
-  
-  const messagesEndRef = useRef<HTMLDivElement>(null);
-  const inputRef = useRef<HTMLInputElement>(null);
+  const [isPreviewOpen, setIsPreviewOpen] = useState(false);
 
-  const scrollToBottom = () => {
-    messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-  };
-
-  useEffect(() => {
-    scrollToBottom();
-  }, [messages]);
-
-  useEffect(() => {
-    if (isOpen && !isMinimized && messages.length === 0) {
-      // Message de bienvenue
-      const welcomeMessage: Message = {
-        id: 'welcome',
-        text: "Bonjour ! 👋 Je suis l'assistant IA de Synnova Tocloe.\n\nJe peux vous renseigner sur :\n🎤 Ses services d'animation\n📱 Son expertise en communication\n🎬 Ses projets cinéma\n🌱 Son entrepreneuriat social\n\nQue souhaitez-vous savoir ?",
-        isBot: true,
-        timestamp: new Date(),
-      };
-      setMessages([welcomeMessage]);
-    }
-  }, [isOpen, isMinimized]);
-
-  const addMessage = (text: string, isBot: boolean, isTyping = false) => {
-    const newMessage: Message = {
-      id: Date.now().toString(),
-      text,
-      isBot,
-      timestamp: new Date(),
-      isTyping,
-    };
-    setMessages(prev => [...prev, newMessage]);
-    return newMessage.id;
-  };
-
-  const updateMessage = (id: string, text: string) => {
-    setMessages(prev => 
-      prev.map(msg => 
-        msg.id === id 
-          ? { ...msg, text, isTyping: false }
-          : msg
-      )
-    );
-  };
-
-  const sendMessage = async (messageText?: string) => {
-    const textToSend = messageText || inputValue.trim();
-    if (!textToSend || isLoading) return;
-
-    // Ajouter le message utilisateur
-    addMessage(textToSend, false);
-    setInputValue('');
-    setShowSuggestions(false);
-    setIsLoading(true);
-
-    // Ajouter un message de typing
-    const typingId = addMessage('', true, true);
-
-    try {
-      const response = await fetch('/api/africhat', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          message: textToSend,
-          conversationHistory: messages.slice(-10), // Derniers 10 messages
-        }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || `Erreur ${response.status}`);
-      }
-
-      const data = await response.json();
-      
-      // Simuler l'effet de typing
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      updateMessage(typingId, data.response);
-
-    } catch (error: any) {
-      console.error('Erreur chat:', error);
-      updateMessage(
-        typingId, 
-        `Désolé, je rencontre un problème technique. 😔\n\nVous pouvez contacter Synnova directement :\n📱 XXXXXXXXXX\n📧 synnovatocloe@gmail.com`
-      );
-    } finally {
-      setIsLoading(false);
-    }
-  };
-
-  const handleKeyDown = (e: React.KeyboardEvent) => {
-    if (e.key === 'Enter' && !e.shiftKey) {
-      e.preventDefault();
-      sendMessage();
-    }
-  };
-
-  const handleSuggestionClick = (suggestion: string) => {
-    sendMessage(suggestion);
-  };
-
-  const toggleChat = () => {
-    setIsOpen(!isOpen);
-    if (!isOpen) {
-      setIsMinimized(false);
-    }
-  };
-
-  const toggleMinimize = () => {
-    setIsMinimized(!isMinimized);
+  const togglePreview = () => {
+    setIsPreviewOpen(!isPreviewOpen);
   };
 
   return (
     <>
-      {/* Bouton flottant */}
-      <motion.button
-        onClick={toggleChat}
-        className={`fixed bottom-6 right-6 z-50 w-14 h-14 rounded-full shadow-2xl flex items-center justify-center transition-all duration-300 ${
-          isOpen 
-            ? 'bg-gray-600 hover:bg-gray-700' 
-            : 'bg-gradient-to-r from-rose via-rose-dark to-indigo hover:shadow-rose/30'
-        }`}
-        whileHover={{ scale: 1.05 }}
-        whileTap={{ scale: 0.95 }}
-        initial={{ scale: 0 }}
-        animate={{ scale: 1 }}
-        transition={{ delay: 1 }}
+      {/* Bouton flottant premium */}
+      <motion.div
+        className="fixed bottom-6 right-6 z-50"
+        initial={{ scale: 0, rotate: -180 }}
+        animate={{ scale: 1, rotate: 0 }}
+        transition={{ delay: 1, type: "spring", stiffness: 200 }}
       >
-        {isOpen ? (
-          <X className="w-6 h-6 text-white" />
-        ) : (
-          <>
-            <MessageCircle className="w-6 h-6 text-white" />
-            <motion.div
-              className="absolute -top-1 -right-1 w-4 h-4 bg-gold rounded-full flex items-center justify-center"
-              animate={{ scale: [1, 1.2, 1] }}
-              transition={{ duration: 2, repeat: Infinity }}
-            >
-              <Sparkles className="w-2 h-2 text-indigo" />
-            </motion.div>
-          </>
-        )}
-      </motion.button>
+        <motion.button
+          onClick={togglePreview}
+          className="relative w-16 h-16 bg-gradient-to-r from-rose via-rose-dark to-indigo rounded-full shadow-2xl flex items-center justify-center group overflow-hidden"
+          whileHover={{ scale: 1.1 }}
+          whileTap={{ scale: 0.95 }}
+        >
+          {/* Effet de brillance */}
+          <motion.div
+            className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent"
+            animate={{ x: [-100, 100] }}
+            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
+          />
+          
+          {isPreviewOpen ? (
+            <X className="w-7 h-7 text-white z-10" />
+          ) : (
+            <>
+              <MessageCircle className="w-7 h-7 text-white z-10" />
+              {/* Badge IA animé */}
+              <motion.div
+                className="absolute -top-2 -right-2 w-6 h-6 bg-gradient-to-r from-gold to-yellow-400 rounded-full flex items-center justify-center shadow-lg"
+                animate={{ 
+                  scale: [1, 1.2, 1],
+                  rotate: [0, 10, -10, 0]
+                }}
+                transition={{ 
+                  duration: 2, 
+                  repeat: Infinity,
+                  repeatDelay: 1
+                }}
+              >
+                <Sparkles className="w-3 h-3 text-indigo" />
+              </motion.div>
+            </>
+          )}
+          
+          {/* Cercles d'onde */}
+          {!isPreviewOpen && (
+            <>
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-rose/30"
+                animate={{ scale: [1, 1.5], opacity: [0.7, 0] }}
+                transition={{ duration: 2, repeat: Infinity }}
+              />
+              <motion.div
+                className="absolute inset-0 rounded-full border-2 border-indigo/30"
+                animate={{ scale: [1, 1.8], opacity: [0.5, 0] }}
+                transition={{ duration: 2, repeat: Infinity, delay: 0.5 }}
+              />
+            </>
+          )}
+        </motion.button>
+      </motion.div>
 
-      {/* Fenêtre de chat */}
+      {/* Aperçu du chat */}
       <AnimatePresence>
-        {isOpen && (
+        {isPreviewOpen && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8, y: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20 }}
-            className={`fixed bottom-24 right-6 z-40 bg-white dark:bg-gray-900 rounded-2xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden transition-all duration-300 ${
-              isMinimized ? 'w-80 h-16' : 'w-96 h-[500px]'
-            }`}
+            className="fixed bottom-28 right-6 z-40 w-80 bg-white dark:bg-gray-900 rounded-3xl shadow-2xl border border-gray-200 dark:border-gray-700 overflow-hidden"
           >
-            {/* Header */}
-            <div className="bg-gradient-to-r from-rose to-indigo p-4 text-white flex items-center justify-between">
-              <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center">
-                  <Bot className="w-4 h-4" />
+            {/* Header premium */}
+            <div className="relative bg-gradient-to-r from-rose via-rose-dark to-indigo p-6 text-white">
+              {/* Effet de particules */}
+              <div className="absolute inset-0 overflow-hidden">
+                {[...Array(20)].map((_, i) => (
+                  <motion.div
+                    key={i}
+                    className="absolute w-1 h-1 bg-white/30 rounded-full"
+                    style={{
+                      left: `${Math.random() * 100}%`,
+                      top: `${Math.random() * 100}%`,
+                    }}
+                    animate={{
+                      y: [-10, -30, -10],
+                      opacity: [0, 1, 0],
+                    }}
+                    transition={{
+                      duration: 3,
+                      repeat: Infinity,
+                      delay: Math.random() * 2,
+                    }}
+                  />
+                ))}
+              </div>
+              
+              <div className="relative z-10 flex items-center gap-4">
+                <div className="relative">
+                  <div className="w-12 h-12 bg-white/20 rounded-full flex items-center justify-center backdrop-blur-sm">
+                    <Bot className="w-6 h-6" />
+                  </div>
+                  <div className="absolute -bottom-1 -right-1 w-4 h-4 bg-green-400 rounded-full border-2 border-white animate-pulse"></div>
                 </div>
                 <div>
-                  <h3 className="font-semibold text-sm">Assistant Synnova</h3>
-                  <p className="text-xs text-white/80">Powered by AfriChat</p>
+                  <h3 className="font-bold text-lg">Assistant Synnova</h3>
+                  <p className="text-white/80 text-sm flex items-center gap-1">
+                    <Zap className="w-3 h-3" />
+                    IA Avancée • Toujours disponible
+                  </p>
                 </div>
-              </div>
-              <div className="flex items-center gap-2">
-                <button
-                  onClick={toggleMinimize}
-                  className="p-1 hover:bg-white/20 rounded transition-colors"
-                >
-                  {isMinimized ? (
-                    <Maximize2 className="w-4 h-4" />
-                  ) : (
-                    <Minimize2 className="w-4 h-4" />
-                  )}
-                </button>
-                <button
-                  onClick={toggleChat}
-                  className="p-1 hover:bg-white/20 rounded transition-colors"
-                >
-                  <X className="w-4 h-4" />
-                </button>
               </div>
             </div>
 
-            {!isMinimized && (
-              <>
-                {/* Messages */}
-                <div className="flex-1 overflow-y-auto p-4 space-y-4 h-80">
-                  {messages.map((message) => (
-                    <motion.div
-                      key={message.id}
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className={`flex gap-3 ${message.isBot ? 'justify-start' : 'justify-end'}`}
-                    >
-                      {message.isBot && (
-                        <div className="w-6 h-6 bg-rose/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                          <Bot className="w-3 h-3 text-rose" />
-                        </div>
-                      )}
-                      
-                      <div className={`max-w-[80%] ${message.isBot ? '' : 'order-first'}`}>
-                        <div
-                          className={`p-3 rounded-2xl text-sm whitespace-pre-wrap ${
-                            message.isBot
-                              ? 'bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-gray-100 rounded-tl-sm'
-                              : 'bg-rose text-white rounded-tr-sm'
-                          }`}
-                        >
-                          {message.isTyping ? (
-                            <div className="flex space-x-1">
-                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce"></div>
-                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.1s' }}></div>
-                              <div className="w-2 h-2 bg-gray-400 rounded-full animate-bounce" style={{ animationDelay: '0.2s' }}></div>
-                            </div>
-                          ) : (
-                            message.text
-                          )}
-                        </div>
-                        <div className="text-xs text-gray-500 mt-1 px-2">
-                          {message.timestamp.toLocaleTimeString('fr-FR', { 
-                            hour: '2-digit', 
-                            minute: '2-digit' 
-                          })}
-                        </div>
-                      </div>
-                      
-                      {!message.isBot && (
-                        <div className="w-6 h-6 bg-rose/10 rounded-full flex items-center justify-center flex-shrink-0 mt-1">
-                          <User className="w-3 h-3 text-rose" />
-                        </div>
-                      )}
-                    </motion.div>
-                  ))}
-
-                  {/* Suggestions rapides */}
-                  {showSuggestions && messages.length <= 1 && (
-                    <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="space-y-2"
-                    >
-                      <p className="text-xs text-gray-500 font-medium">Suggestions rapides :</p>
-                      <div className="flex flex-wrap gap-2">
-                        {quickSuggestions.map((suggestion, index) => (
-                          <button
-                            key={index}
-                            onClick={() => handleSuggestionClick(suggestion)}
-                            className="px-3 py-1 bg-rose/10 hover:bg-rose/20 text-rose text-xs rounded-full transition-colors"
-                            disabled={isLoading}
-                          >
-                            {suggestion}
-                          </button>
-                        ))}
-                      </div>
-                    </motion.div>
-                  )}
-                  
-                  <div ref={messagesEndRef} />
-                </div>
-
-                {/* Input */}
-                <div className="p-4 border-t border-gray-200 dark:border-gray-700">
-                  <div className="flex gap-2">
-                    <input
-                      ref={inputRef}
-                      type="text"
-                      value={inputValue}
-                      onChange={(e) => setInputValue(e.target.value)}
-                      onKeyDown={handleKeyDown}
-                      disabled={isLoading}
-                      placeholder="Posez votre question..."
-                      className="flex-1 px-3 py-2 bg-gray-100 dark:bg-gray-800 border-0 rounded-full text-sm focus:outline-none focus:ring-2 focus:ring-rose/50 disabled:opacity-50"
-                      maxLength={1000}
-                    />
-                    <button
-                      onClick={() => sendMessage()}
-                      disabled={!inputValue.trim() || isLoading}
-                      className="w-8 h-8 bg-rose text-white rounded-full flex items-center justify-center hover:bg-rose-dark transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                    >
-                      <Send className="w-3 h-3" />
-                    </button>
+            {/* Contenu de l'aperçu */}
+            <div className="p-6 space-y-4">
+              <div className="space-y-3">
+                <div className="flex items-start gap-3">
+                  <div className="w-8 h-8 bg-gradient-to-r from-rose to-indigo rounded-full flex items-center justify-center flex-shrink-0">
+                    <Bot className="w-4 h-4 text-white" />
                   </div>
-                  <p className="text-xs text-gray-500 text-center mt-2">
-                    Assistant IA • Portfolio Synnova Tocloe
-                  </p>
+                  <div className="bg-gray-100 dark:bg-gray-800 rounded-2xl rounded-tl-md p-3 text-sm">
+                    Salut ! 👋 Je suis l'assistant IA de Synnova.
+                    <br /><br />
+                    ✨ <strong>Nouveau :</strong> Je peux maintenant répondre à TOUTES vos questions !
+                  </div>
                 </div>
-              </>
-            )}
+              </div>
+
+              {/* Fonctionnalités */}
+              <div className="grid grid-cols-2 gap-2 text-xs">
+                <div className="bg-rose/10 text-rose p-2 rounded-lg text-center">
+                  🎤 Portfolio
+                </div>
+                <div className="bg-indigo/10 text-indigo p-2 rounded-lg text-center">
+                  🌍 Questions générales
+                </div>
+                <div className="bg-gold/10 text-gold p-2 rounded-lg text-center">
+                  💬 Discussion libre
+                </div>
+                <div className="bg-green-500/10 text-green-600 p-2 rounded-lg text-center">
+                  🎯 Conseils
+                </div>
+              </div>
+
+              {/* Bouton d'action principal */}
+              <Link href="/chat">
+                <motion.button
+                  className="w-full bg-gradient-to-r from-rose to-indigo text-white py-3 px-4 rounded-2xl font-semibold text-sm flex items-center justify-center gap-2 shadow-lg"
+                  whileHover={{ scale: 1.02 }}
+                  whileTap={{ scale: 0.98 }}
+                >
+                  <MessageCircle className="w-4 h-4" />
+                  Ouvrir le Chat Complet
+                  <ExternalLink className="w-4 h-4" />
+                </motion.button>
+              </Link>
+
+              <p className="text-xs text-gray-500 text-center">
+                Powered by AfriChat • IA Conversationnelle
+              </p>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
