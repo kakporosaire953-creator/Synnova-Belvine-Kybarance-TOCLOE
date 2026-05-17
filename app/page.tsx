@@ -497,7 +497,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* FAQ Section - Updated */}
+        {/* FAQ Section - Clean Version */}
         <FAQSection 
           title="Questions Fréquentes"
           subtitle="Tout ce que vous devez savoir sur mes services d'animation et de communication"
