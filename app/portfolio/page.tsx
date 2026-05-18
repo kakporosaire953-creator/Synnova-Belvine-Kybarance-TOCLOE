@@ -11,7 +11,7 @@ import { PageLoader } from "@/components/page-loader";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
 import { galleryImages, type SynnovaImage } from "@/lib/synnova-images";
 
-const categories = [
+const categoriesFr = [
   { id: "all", label: "Tout" },
   { id: "portrait", label: "Portraits" },
   { id: "animation", label: "Animation" },
@@ -20,7 +20,16 @@ const categories = [
   { id: "lifestyle", label: "Lifestyle" },
 ];
 
-const portfolioItems = [
+const categoriesEn = [
+  { id: "all", label: "All" },
+  { id: "portrait", label: "Portraits" },
+  { id: "animation", label: "Hosting" },
+  { id: "communication", label: "Communication" },
+  { id: "engagement", label: "Engagement" },
+  { id: "lifestyle", label: "Lifestyle" },
+];
+
+const portfolioItemsFr = [
   {
     id: 1,
     title: "Festival International des Arts du Bénin",
@@ -69,21 +78,84 @@ const portfolioItems = [
     year: "2021-2022",
     location: "Grand-Popo, Bénin",
     tags: ["Communication", "Stratégie", "Digital"],
-    imageIndex: 2,
+    imageIndex: 11,
   },
   {
     id: 6,
-    title: "Événements Corporatifs",
+    title: "Événements Corporate",
     category: "animation",
-    description: "Animation de séminaires, conférences et événements d'entreprise au Bénin. Mon dynamisme et mon professionnalisme sont reconnus par les organisateurs d'événements corporate.",
-    year: "2022-Présent",
+    description: "Animation d'événements d'entreprise et de séminaires professionnels. Mon approche professionnelle et dynamique garantit le succès de vos événements corporate.",
+    year: "2021-Présent",
     location: "Bénin",
     tags: ["Animation", "Corporate", "Professionnel"],
     imageIndex: 17,
   },
 ];
 
-const testimonials = [
+const portfolioItemsEn = [
+  {
+    id: 1,
+    title: "Benin International Arts Festival",
+    category: "animation",
+    description: "Live hosting and stage management during this major event of Beninese culture. A career highlight where I showcased my hosting skills in front of an audience of several thousand people.",
+    year: "2023",
+    location: "Cotonou, Benin",
+    tags: ["Hosting", "Management", "Culture"],
+    imageIndex: 0,
+  },
+  {
+    id: 2,
+    title: "UReport Grand-Popo",
+    category: "engagement",
+    description: "Coordination of communication and youth engagement activities in Grand-Popo. As coordinator, I lead awareness campaigns and give a voice to young people in my community.",
+    year: "2022-Present",
+    location: "Grand-Popo, Benin",
+    tags: ["Coordination", "Youth", "Engagement"],
+    imageIndex: 6,
+  },
+  {
+    id: 3,
+    title: "Film Production",
+    category: "portrait",
+    description: "Participation as actress and stage manager in several local productions. Cinema is a passion that allows me to explore new creative horizons.",
+    year: "2023",
+    location: "Benin",
+    tags: ["Actress", "Management", "Cinema"],
+    imageIndex: 4,
+  },
+  {
+    id: 4,
+    title: "Biodegradable Packaging",
+    category: "lifestyle",
+    description: "Creation and manufacturing of eco-responsible packaging for a sustainable future. My commitment to the environment translates into this innovative entrepreneurial initiative.",
+    year: "2023-Present",
+    location: "Grand-Popo, Benin",
+    tags: ["Eco-friendly", "Crafts", "Innovation"],
+    imageIndex: 9,
+  },
+  {
+    id: 5,
+    title: "Grand-Popo Youth City Hall",
+    category: "communication",
+    description: "Former Communication Manager, development of the Youth City Hall's digital strategy. A formative experience that allowed me to develop my institutional communication skills.",
+    year: "2021-2022",
+    location: "Grand-Popo, Benin",
+    tags: ["Communication", "Strategy", "Digital"],
+    imageIndex: 11,
+  },
+  {
+    id: 6,
+    title: "Corporate Events",
+    category: "animation",
+    description: "Hosting corporate events and professional seminars. My professional and dynamic approach guarantees the success of your corporate events.",
+    year: "2021-Present",
+    location: "Benin",
+    tags: ["Hosting", "Corporate", "Professional"],
+    imageIndex: 17,
+  },
+];
+
+const testimonialsFr = [
   {
     quote: "Synnova apporte une énergie unique à chaque événement. Son professionnalisme et sa créativité sont remarquables.",
     author: "Organisateur d'événements",
@@ -100,7 +172,28 @@ const testimonials = [
   },
 ];
 
+const testimonialsEn = [
+  {
+    quote: "Synnova brings unique energy to every event. Her professionalism and creativity are remarkable.",
+    author: "Event Organizer",
+    role: "Arts Festival",
+    initial: "O",
+    color: "bg-rose",
+  },
+  {
+    quote: "An exceptional communicator who understands the challenges of Beninese youth.",
+    author: "UReport Partner",
+    role: "Grand-Popo",
+    initial: "P",
+    color: "bg-indigo",
+  },
+];
+
 export default function PortfolioPage() {
+  const { language, t } = useTranslation();
+  const categories = language === "fr" ? categoriesFr : categoriesEn;
+  const portfolioItems = language === "fr" ? portfolioItemsFr : portfolioItemsEn;
+  const testimonials = language === "fr" ? testimonialsFr : testimonialsEn;
   const [activeCategory, setActiveCategory] = useState("all");
   const [selectedItem, setSelectedItem] = useState<typeof portfolioItems[0] | null>(null);
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -162,14 +255,13 @@ export default function PortfolioPage() {
           <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <AnimatedSection>
               <span className="text-rose font-medium tracking-widest uppercase text-sm">
-                Portfolio
+                {t("portfolio.label")}
               </span>
               <h1 className="font-serif text-5xl sm:text-6xl lg:text-7xl font-black text-indigo mt-4 tracking-tight leading-[0.95]">
-                Mes Réalisations
+                {t("portfolio.title")}
               </h1>
               <p className="mt-6 text-xl text-indigo/70 max-w-2xl mx-auto leading-relaxed">
-                Découvrez les projets, événements et collaborations qui ont marqué
-                mon parcours professionnel.
+                {t("portfolio.subtitle")}
               </p>
             </AnimatedSection>
           </div>
@@ -203,10 +295,10 @@ export default function PortfolioPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection className="text-center mb-12">
               <span className="text-rose font-medium tracking-widest uppercase text-sm">
-                Galerie Photo
+                {language === "fr" ? "Galerie Photo" : "Photo Gallery"}
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-indigo mt-2 tracking-tight">
-                Moments capturés
+                {language === "fr" ? "Moments capturés" : "Captured moments"}
               </h2>
             </AnimatedSection>
 
@@ -481,7 +573,7 @@ export default function PortfolioPage() {
                       onClick={() => setSelectedItem(null)}
                       className="flex-1 border-2 border-border text-indigo py-3 rounded-full font-medium hover:bg-cream transition-colors"
                     >
-                      Fermer
+                      {language === "fr" ? "Fermer" : "Close"}
                     </button>
                   </div>
                 </div>
