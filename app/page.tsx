@@ -79,7 +79,71 @@ const facettesEn = [
   },
 ];
 
-const faqItems = [
+const faqItemsFr = [
+  {
+    question: "Quels types d'événements Synnova anime-t-elle ?",
+    answer: "Synnova anime une grande variété d'événements :\n\n• Mariages traditionnels béninois et modernes\n• Festivals culturels et concerts\n• Événements corporate et séminaires\n• Conférences et lancements de produits\n• Anniversaires et célébrations privées\n\nAvec plus de 5 années d'expérience, elle s'adapte à tous types d'événements, des plus intimes (50 personnes) aux plus grands (5000+ spectateurs).",
+    icon: faCalendarAlt
+  },
+  {
+    question: "Comment obtenir un devis pour mes événements ?",
+    answer: "Pour obtenir un devis personnalisé :\n\n1. Contactez Synnova par WhatsApp (XXXXXXXXXX) ou email (synnovatocloe@gmail.com)\n2. Décrivez votre événement (type, date, lieu, nombre d'invités)\n3. Précisez les services souhaités (animation, MC, coordination technique...)\n4. Vous recevrez un devis détaillé sous 24h\n\nLes tarifs sont adaptés selon le type d'événement, la durée, la localisation et les services additionnels demandés.",
+    icon: faCalculator
+  },
+  {
+    question: "Synnova se déplace-t-elle en dehors de Grand-Popo ?",
+    answer: "Oui, Synnova intervient dans plusieurs zones :\n\n• Grand-Popo (base principale) - pas de frais de déplacement\n• Cotonou et environs - frais de transport inclus\n• Tout le Bénin - supplément de 30% pour les frais de déplacement\n• Lomé, Togo - collaborations spéciales\n• Autres pays de la région - sur demande\n\nElle privilégie les événements de qualité et s'adapte à votre localisation pour vous offrir le meilleur service.",
+    icon: faMapMarkerAlt
+  },
+  {
+    question: "Quelles sont les spécialités culturelles de Synnova ?",
+    answer: "Synnova maîtrise parfaitement la culture béninoise :\n\n• Traditions vodoun et danses locales (Adjogan, Sakpata, Tchinkounmé)\n• Animation bilingue (français et langues locales : Fon, Yoruba)\n• Collaboration avec griots et musiciens traditionnels\n• Respect des protocoles culturels béninois\n• Intégration harmonieuse des traditions dans les événements modernes\n\nCette expertise culturelle unique fait d'elle la référence pour les événements authentiquement béninois.",
+    icon: faCrown
+  },
+  {
+    question: "Synnova propose-t-elle d'autres services que l'animation ?",
+    answer: "Oui, Synnova offre une gamme complète de services :\n\nAnimation & Événements\n• Maîtrise de cérémonie\n• Coordination technique\n• Gestion de foules importantes\n\nCommunication Digitale\n• Stratégie de communication\n• Création de contenu\n• Community management\n• Couverture réseaux sociaux\n\nCinéma & Régie\n• Actrice (films béninois)\n• Coordination artistique\n• Direction d'acteurs\n\nEntrepreneuriat Social\n• Emballages biodégradables\n• Solutions éco-responsables",
+    icon: faCogs
+  },
+  {
+    question: "Comment se déroule la préparation d'un événement avec Synnova ?",
+    answer: "Le processus de collaboration est structuré :\n\n1. **Contact initial** - WhatsApp/Email pour premier échange\n2. **Brief créatif** - Discussion détaillée de vos besoins et attentes\n3. **Devis personnalisé** - Proposition sous 24h avec tarifs transparents\n4. **Rencontre de préparation** - Si nécessaire, pour finaliser les détails\n5. **Confirmation** - Signature et acompte de 30%\n6. **Préparation** - Coordination avec vos équipes et prestataires\n7. **Exécution** - Animation professionnelle le jour J\n8. **Suivi** - Retour post-événement et satisfaction client\n\nDélai minimum : 48h (urgences possibles selon disponibilité)",
+    icon: faClipboardList
+  }
+];
+
+const faqItemsEn = [
+  {
+    question: "What types of events does Synnova host?",
+    answer: "Synnova hosts a wide variety of events:\n\n• Traditional and modern Beninese weddings\n• Cultural festivals and concerts\n• Corporate events and seminars\n• Conferences and product launches\n• Birthdays and private celebrations\n\nWith over 5 years of experience, she adapts to all types of events, from intimate gatherings (50 people) to large-scale events (5000+ spectators).",
+    icon: faCalendarAlt
+  },
+  {
+    question: "How do I get a quote for my events?",
+    answer: "To get a personalized quote:\n\n1. Contact Synnova via WhatsApp (XXXXXXXXXX) or email (synnovatocloe@gmail.com)\n2. Describe your event (type, date, location, number of guests)\n3. Specify desired services (hosting, MC, technical coordination...)\n4. You'll receive a detailed quote within 24 hours\n\nRates are adapted based on event type, duration, location, and additional services requested.",
+    icon: faCalculator
+  },
+  {
+    question: "Does Synnova travel outside of Grand-Popo?",
+    answer: "Yes, Synnova operates in several areas:\n\n• Grand-Popo (main base) - no travel fees\n• Cotonou and surroundings - transport fees included\n• All of Benin - 30% supplement for travel costs\n• Lomé, Togo - special collaborations\n• Other regional countries - on request\n\nShe prioritizes quality events and adapts to your location to provide the best service.",
+    icon: faMapMarkerAlt
+  },
+  {
+    question: "What are Synnova's cultural specialties?",
+    answer: "Synnova has perfect mastery of Beninese culture:\n\n• Vodoun traditions and local dances (Adjogan, Sakpata, Tchinkounmé)\n• Bilingual hosting (French and local languages: Fon, Yoruba)\n• Collaboration with griots and traditional musicians\n• Respect for Beninese cultural protocols\n• Harmonious integration of traditions in modern events\n\nThis unique cultural expertise makes her the reference for authentically Beninese events.",
+    icon: faCrown
+  },
+  {
+    question: "Does Synnova offer services beyond hosting?",
+    answer: "Yes, Synnova offers a complete range of services:\n\nEvent Hosting & Management\n• Master of ceremonies\n• Technical coordination\n• Large crowd management\n\nDigital Communication\n• Communication strategy\n• Content creation\n• Community management\n• Social media coverage\n\nCinema & Production\n• Actress (Beninese films)\n• Artistic coordination\n• Actor direction\n\nSocial Entrepreneurship\n• Biodegradable packaging\n• Eco-responsible solutions",
+    icon: faCogs
+  },
+  {
+    question: "How does event preparation work with Synnova?",
+    answer: "The collaboration process is structured:\n\n1. **Initial contact** - WhatsApp/Email for first discussion\n2. **Creative brief** - Detailed discussion of your needs and expectations\n3. **Personalized quote** - Proposal within 24 hours with transparent pricing\n4. **Preparation meeting** - If needed, to finalize details\n5. **Confirmation** - Signature and 30% deposit\n6. **Preparation** - Coordination with your teams and service providers\n7. **Execution** - Professional hosting on the day\n8. **Follow-up** - Post-event feedback and client satisfaction\n\nMinimum lead time: 48 hours (urgent requests possible based on availability)",
+    icon: faClipboardList
+  }
+];
   {
     question: "Quels types d'événements Synnova anime-t-elle ?",
     answer: "Synnova anime une grande variété d'événements :\n\n• Mariages traditionnels béninois et modernes\n• Festivals culturels et concerts\n• Événements corporate et séminaires\n• Conférences et lancements de produits\n• Anniversaires et célébrations privées\n\nAvec plus de 5 années d'expérience, elle s'adapte à tous types d'événements, des plus intimes (50 personnes) aux plus grands (5000+ spectateurs).",
@@ -115,6 +179,7 @@ const faqItems = [
 export default function HomePage() {
   const { language, t } = useTranslation();
   const facettes = language === "fr" ? facettesFr : facettesEn;
+  const faqItems = language === "fr" ? faqItemsFr : faqItemsEn;
 
   return (
     <PageLoader>

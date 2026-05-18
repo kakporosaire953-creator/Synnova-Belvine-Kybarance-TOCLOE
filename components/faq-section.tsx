@@ -10,6 +10,7 @@ import {
   faPhone
 } from '@fortawesome/free-solid-svg-icons';
 import { AnimatedSection } from '@/components/animations';
+import { useTranslation } from '@/lib/app-context';
 
 interface FAQItem {
   question: string;
@@ -30,6 +31,7 @@ export function FAQSection({
   items, 
   className = "" 
 }: FAQSectionProps) {
+  const { language } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
   const toggleItem = (index: number) => {
@@ -146,10 +148,13 @@ export function FAQSection({
               <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6 text-rose" />
             </div>
             <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
-              Une autre question ?
+              {language === "fr" ? "Une autre question ?" : "Have another question?"}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              N'hésitez pas à me contacter directement pour toute question spécifique sur vos projets d'événements
+              {language === "fr" 
+                ? "N'hésitez pas à me contacter directement pour toute question spécifique sur vos projets d'événements"
+                : "Feel free to contact me directly for any specific questions about your event projects"
+              }
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -157,14 +162,16 @@ export function FAQSection({
                 className="bg-rose text-white px-6 py-3 rounded-full font-medium hover:bg-rose-dark transition-colors inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
                 <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
-                synnovatocloe@gmail.com
+                {language === "fr" ? "Email" : "Email"}
               </a>
               <a 
-                href="#"
-                className="bg-indigo text-white px-6 py-3 rounded-full font-medium hover:bg-indigo-dark transition-colors inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
+                href="https://wa.me/22990123456"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="bg-green-500 text-white px-6 py-3 rounded-full font-medium hover:bg-green-600 transition-colors inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
                 <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
-                WhatsApp : XXXXXXXXXX
+                {language === "fr" ? "WhatsApp" : "WhatsApp"}
               </a>
             </div>
           </div>
