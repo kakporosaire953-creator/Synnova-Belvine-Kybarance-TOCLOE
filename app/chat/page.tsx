@@ -68,7 +68,7 @@ export default function ChatPage() {
     if (!textToSend || isLoading) return;
 
     // Créer un ID unique pour le message utilisateur avec timestamp + random
-    const userMessageId = `user-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const userMessageId = `user-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     
     // Ajouter le message utilisateur avec ID unique
     const userMessage: Message = {
@@ -87,7 +87,7 @@ export default function ChatPage() {
     await new Promise(resolve => setTimeout(resolve, 50));
 
     // Ajouter un message de typing avec ID unique différent
-    const typingId = `bot-typing-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
+    const typingId = `bot-typing-${Date.now()}-${Math.random().toString(36).substring(2, 11)}`;
     const typingMessage: Message = {
       id: typingId,
       text: '',

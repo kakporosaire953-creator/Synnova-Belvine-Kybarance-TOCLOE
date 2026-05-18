@@ -499,8 +499,8 @@ export default function HomePage() {
 
         {/* FAQ Section - Clean Version */}
         <FAQSection 
-          title="Questions Fréquentes"
-          subtitle="Tout ce que vous devez savoir sur mes services d'animation et de communication"
+          title={t("faq.title")}
+          subtitle={t("faq.subtitle")}
           items={faqItems}
           className="bg-background"
         />

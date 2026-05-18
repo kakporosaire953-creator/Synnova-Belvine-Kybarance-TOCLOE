@@ -63,6 +63,10 @@ export const translations = {
     "contact.form.success.message": "Merci pour votre message. Je vous répondrai très prochainement.",
     "contact.form.success.another": "Envoyer un autre message",
     
+    // FAQ
+    "faq.title": "Questions Fréquentes",
+    "faq.subtitle": "Tout ce que vous devez savoir sur mes services d'animation et de communication",
+    
     // Common
     "common.learnMore": "En savoir plus",
     "common.seeAll": "Voir tout",
@@ -130,6 +134,10 @@ export const translations = {
     "contact.form.success.title": "Message sent!",
     "contact.form.success.message": "Thank you for your message. I'll respond very soon.",
     "contact.form.success.another": "Send another message",
+    
+    // FAQ
+    "faq.title": "Frequently Asked Questions",
+    "faq.subtitle": "Everything you need to know about my hosting and communication services",
     
     // Common
     "common.learnMore": "Learn more",
