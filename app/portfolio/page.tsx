@@ -9,6 +9,7 @@ import { Navigation } from "@/components/navigation";
 import { Footer } from "@/components/footer";
 import { PageLoader } from "@/components/page-loader";
 import { AnimatedSection, StaggerContainer, StaggerItem } from "@/components/animations";
+import { useTranslation } from "@/lib/app-context";
 import { galleryImages, type SynnovaImage } from "@/lib/synnova-images";
 
 const categoriesFr = [
@@ -332,7 +333,7 @@ export default function PortfolioPage() {
                     {/* Hover Overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-indigo/80 via-indigo/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col items-center justify-end pb-4">
                       <ZoomIn className="text-white mb-2" size={24} />
-                      <span className="text-white text-sm font-medium">Voir</span>
+                      <span className="text-white text-sm font-medium">{language === "fr" ? "Voir" : "View"}</span>
                     </div>
 
                     {/* Category Badge */}
@@ -353,10 +354,10 @@ export default function PortfolioPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection className="text-center mb-12">
               <span className="text-rose font-medium tracking-widest uppercase text-sm">
-                Projets
+                {language === "fr" ? "Projets" : "Projects"}
               </span>
               <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl font-black text-indigo mt-2 tracking-tight">
-                Expériences marquantes
+                {language === "fr" ? "Expériences marquantes" : "Remarkable experiences"}
               </h2>
             </AnimatedSection>
 
@@ -426,10 +427,10 @@ export default function PortfolioPage() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <AnimatedSection className="text-center mb-16">
               <span className="text-rose font-medium tracking-widest uppercase text-sm">
-                Temoignages
+                {language === "fr" ? "Témoignages" : "Testimonials"}
               </span>
               <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black text-indigo mt-4 tracking-tight">
-                Ce qu&apos;ils disent
+                {language === "fr" ? "Ce qu'ils disent" : "What they say"}
               </h2>
             </AnimatedSection>
 
@@ -470,7 +471,7 @@ export default function PortfolioPage() {
         <section className="py-24 bg-indigo text-white">
           <AnimatedSection className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl font-black tracking-tight">
-              Envie de collaborer ?
+              {language === "fr" ? "Envie de collaborer ?" : "Want to collaborate?"}
             </h2>
             <p className="mt-4 text-white/70 text-lg">
               Discutons de votre projet et voyons comment je peux vous accompagner.
@@ -482,7 +483,7 @@ export default function PortfolioPage() {
                   whileTap={{ scale: 0.98 }}
                   className="bg-rose text-white px-8 py-4 rounded-full font-medium inline-flex items-center gap-2 group"
                 >
-                  Me contacter
+                  {language === "fr" ? "Me contacter" : "Contact me"}
                   <ArrowRight
                     size={18}
                     className="group-hover:translate-x-1 transition-transform"
@@ -565,7 +566,7 @@ export default function PortfolioPage() {
                   <div className="mt-8 pt-6 border-t border-border flex flex-col sm:flex-row gap-4">
                     <Link href="/contact" className="flex-1">
                       <button className="w-full bg-rose text-white py-3 rounded-full font-medium flex items-center justify-center gap-2 group">
-                        Me contacter
+                        {language === "fr" ? "Me contacter" : "Contact me"}
                         <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
                       </button>
                     </Link>
