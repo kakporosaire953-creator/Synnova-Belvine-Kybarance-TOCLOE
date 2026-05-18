@@ -590,7 +590,7 @@ export default function PortfolioPage() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="fixed inset-0 z-[100] bg-indigo/95 backdrop-blur-md flex items-center justify-center"
+              className="fixed inset-0 z-[100] bg-indigo/95 backdrop-blur-md flex items-center justify-center p-4"
               onClick={() => setLightboxIndex(null)}
             >
               <button
@@ -620,27 +620,55 @@ export default function PortfolioPage() {
                 <ChevronRight size={24} />
               </button>
 
-              <div className="absolute bottom-4 md:bottom-8 left-1/2 -translate-x-1/2 text-white/70 text-sm font-medium">
-                {lightboxIndex + 1} / {filteredImages.length}
-              </div>
-
               <motion.div
                 key={lightboxIndex}
                 initial={{ opacity: 0, scale: 0.9 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.9 }}
                 transition={{ type: "spring", damping: 25, stiffness: 300 }}
-                className="relative w-[90vw] h-[80vh] md:w-[80vw] md:h-[85vh]"
+                className="flex flex-col items-center gap-6 max-w-4xl w-full"
                 onClick={(e) => e.stopPropagation()}
               >
-                <Image
-                  src={filteredImages[lightboxIndex].src}
-                  alt={filteredImages[lightboxIndex].alt}
-                  fill
-                  className="object-contain"
-                  sizes="90vw"
-                  priority
-                />
+                {/* Image */}
+                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl">
+                  <Image
+                    src={filteredImages[lightboxIndex].src}
+                    alt={filteredImages[lightboxIndex].alt}
+                    fill
+                    className="object-cover"
+                    sizes="90vw"
+                    priority
+                  />
+                </div>
+
+                {/* Info Card */}
+                <motion.div
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ delay: 0.2 }}
+                  className="bg-white/10 backdrop-blur-sm rounded-2xl p-6 w-full border border-white/20"
+                >
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex-1">
+                      <h3 className="text-white font-serif text-xl font-bold mb-2">
+                        {filteredImages[lightboxIndex].alt}
+                      </h3>
+                      <p className="text-white/80 text-sm mb-4">
+                        {filteredImages[lightboxIndex].description || "Moment capturé lors d'un événement"}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${getCategoryColor(filteredImages[lightboxIndex].category)}`}>
+                          {categories.find(c => c.id === filteredImages[lightboxIndex].category)?.label}
+                        </span>
+                      </div>
+                    </div>
+                    <div className="text-right">
+                      <p className="text-white/70 text-sm">
+                        {lightboxIndex + 1} / {filteredImages.length}
+                      </p>
+                    </div>
+                  </div>
+                </motion.div>
               </motion.div>
             </motion.div>
           )}
