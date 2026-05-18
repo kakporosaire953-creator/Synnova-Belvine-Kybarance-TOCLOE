@@ -650,20 +650,17 @@ export default function PortfolioPage() {
                 >
                   <div className="flex items-start justify-between gap-4">
                     <div className="flex-1">
-                      <h3 className="text-white font-serif text-xl font-bold mb-2">
+                      <h3 className="text-white font-serif text-xl font-bold mb-3">
                         {filteredImages[lightboxIndex].alt}
                       </h3>
-                      <p className="text-white/80 text-sm mb-4">
-                        {filteredImages[lightboxIndex].description || "Moment capturé lors d'un événement"}
-                      </p>
                       <div className="flex flex-wrap gap-2">
                         <span className={`px-3 py-1 rounded-full text-xs font-medium text-white ${getCategoryColor(filteredImages[lightboxIndex].category)}`}>
-                          {categories.find(c => c.id === filteredImages[lightboxIndex].category)?.label}
+                          {categories.find(c => c.id === filteredImages[lightboxIndex].category)?.label || filteredImages[lightboxIndex].category}
                         </span>
                       </div>
                     </div>
                     <div className="text-right">
-                      <p className="text-white/70 text-sm">
+                      <p className="text-white/70 text-sm font-medium">
                         {lightboxIndex + 1} / {filteredImages.length}
                       </p>
                     </div>

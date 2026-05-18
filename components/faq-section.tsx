@@ -34,6 +34,14 @@ export function FAQSection({
   const { language } = useTranslation();
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  // Traductions pour la section contact
+  const contactTitle = language === "fr" ? "Une autre question ?" : "Have another question?";
+  const contactSubtitle = language === "fr" 
+    ? "N'hésitez pas à me contacter directement pour toute question spécifique sur vos projets d'événements"
+    : "Feel free to contact me directly for any specific questions about your event projects";
+  const emailLabel = language === "fr" ? "Email" : "Email";
+  const whatsappLabel = language === "fr" ? "WhatsApp" : "WhatsApp";
+
   const toggleItem = (index: number) => {
     setOpenIndex(openIndex === index ? null : index);
   };
@@ -148,13 +156,10 @@ export function FAQSection({
               <FontAwesomeIcon icon={faEnvelope} className="w-6 h-6 text-rose" />
             </div>
             <h3 className="font-serif text-2xl font-bold text-foreground mb-2">
-              {language === "fr" ? "Une autre question ?" : "Have another question?"}
+              {contactTitle}
             </h3>
             <p className="text-muted-foreground mb-6 max-w-md mx-auto">
-              {language === "fr" 
-                ? "N'hésitez pas à me contacter directement pour toute question spécifique sur vos projets d'événements"
-                : "Feel free to contact me directly for any specific questions about your event projects"
-              }
+              {contactSubtitle}
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <a 
@@ -162,7 +167,7 @@ export function FAQSection({
                 className="bg-rose text-white px-6 py-3 rounded-full font-medium hover:bg-rose-dark transition-colors inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
                 <FontAwesomeIcon icon={faEnvelope} className="w-4 h-4" />
-                {language === "fr" ? "Email" : "Email"}
+                {emailLabel}
               </a>
               <a 
                 href="https://wa.me/22990123456"
@@ -171,7 +176,7 @@ export function FAQSection({
                 className="bg-green-500 text-white px-6 py-3 rounded-full font-medium hover:bg-green-600 transition-colors inline-flex items-center justify-center gap-2 shadow-lg hover:shadow-xl"
               >
                 <FontAwesomeIcon icon={faPhone} className="w-4 h-4" />
-                {language === "fr" ? "WhatsApp" : "WhatsApp"}
+                {whatsappLabel}
               </a>
             </div>
           </div>
